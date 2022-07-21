@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "npx reciple"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "discord.js": "^14.0.3",
+    "reciple": "^3.0.2"
+  }
+}

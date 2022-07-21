@@ -1,0 +1,117 @@
+# Your bot token here
+# To use env variable as a token just do it like this env:TOKEN_ENV
+token: env:TOKEN
+
+
+# Commands options
+commands:
+  messageCommand:
+    # enable message commands
+    enabled: true
+    # command prefix
+    prefix: '!'
+    # reply when an error occured
+    replyOnError: false
+    # Enable the use of command cooldowns
+    enableCooldown: true
+    # Allow executing commands via aliases
+    allowCommandAlias: true
+    # command argument separator
+    commandArgumentSeparator: ' '
+    # Overwrite command permissions
+    permissions:
+      # enable overwriten command permissions
+      enabled: false
+      commands:
+        - command: 'example-command'
+          permissions: ['Administrator']
+  interactionCommand:
+    # enable interaction commands
+    enabled: true
+    # reply when an error occured
+    replyOnError: false
+    # Enable the use of command cooldowns
+    enableCooldown: true
+    # register interaction commands on bot ready
+    registerCommands: true
+    # set required permissions for interaction commands
+    setRequiredPermissions: true
+    # register commands to specific guild(s) empty to make it global
+    guilds: ['876039624814899220']
+    # Overwrite command permissions
+    permissions:
+      # enable overwriten command permissions
+      enabled: false
+      commands:
+        - command: 'example-command'
+          permissions: ['Administrator']
+
+
+# Ignored channel IDs
+ignoredChannels:
+  # enable ignored channels
+  enabled: false
+  # convert to only allowed channels
+  convertToAllowList: false
+  # channel IDs
+  channels: []
+
+
+# Logger options
+fileLogging:
+  # enable console output to file
+  enabled: true
+  # enable debug mode
+  debugmode: false
+  # enable if reciple will use the logger
+  clientLogs: true
+  # stringify logged JSONs
+  stringifyLoggedJSON: false
+  # log file path
+  logFilePath: './logs/latest.log'
+
+# Client options
+client:
+  intents:
+    - 'Guilds'
+    - 'GuildMembers'
+    - 'GuildMessages'
+    - 'MessageContent'
+
+# Bot replies
+messages:
+  missingArguments: 'Not enough arguments.'
+  invalidArguments: 'Invalid argument(s) given.'
+  insufficientBotPerms:
+    content: 'Insufficient bot permissions.'
+    ephemeral: true
+  noPermissions:
+    content: 'You do not have permission to use this command.'
+    ephemeral: true
+  cooldown:
+    content: 'You cannot execute this command right now due to the cooldown.'
+    ephemeral: true
+  error:
+    content: 'An error occurred.'
+    ephemeral: true
+
+# Ignored Files
+ignoredFiles: []
+
+
+###################################################
+#                                                 #
+#   #####  #####  #    #   ###   #####  ####      #
+#   #   #  #   #  # #  #  #      #      #   #     #
+#   #   #  #####  #  # #  # ###  ###    ####      #
+#   #  #   #   #  #    #  #   #  #      #   #     #
+#   ###    #   #  #    #   ###   #####  #    #    #
+#                                                 #
+###################################################
+## Modifying these values below can cause errors ##
+
+# Modules folder
+modulesFolder: 'modules'
+
+# Current version
+version: 3.0.2
