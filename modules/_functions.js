@@ -2,13 +2,14 @@ const { EmbedBuilder } = require('discord.js');
 const { trimChars, escapeRegExp } = require('fallout-utility');
 
 const emojis = {
-    "Class": "<:class:874569296821501952>",
-    "Interface": "<:interface:874569310025179188>",
-    "Function": "<:method:965916906311802930>",
-    "Enumeration": "<:interface:874569310025179188>",
-    "Variable": "<:property:874569322742308864>",
-    "Type alias": "<:interface:874569310025179188>",
-    "Other": "<:property:874569322742308864>"
+    "Class": "<:class:1000314887261667408>",
+    "Interface": "<:typeinterface:1000314891304968285>",
+    "Function": "<:methodfunction:1000314893813162015>",
+    "Method": "<:methodfunction:1000314893813162015>",
+    "Enumeration": "<:enum:1000314889644015636>",
+    "Variable": "<:variable:1000314895889354902>",
+    "Type alias": "<:typeinterface:1000314891304968285>",
+    "Other": "<:word:1000319654339825744>"
 };
 
 const aliases = {
