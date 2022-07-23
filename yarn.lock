@@ -31,10 +31,10 @@
     tslib "^2.4.0"
     undici "^5.7.0"
 
-"@ghextercortes/djs-pagination@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@ghextercortes/djs-pagination/-/djs-pagination-2.0.0.tgz#4cc7cbd90e98d56a173b869570c0456e93da83b8"
-  integrity sha512-6x5X/pBd+pyxZCeiPZX+brOaTvW6vY5yuumuMNaMS6F1kxBirgmV4bH+RYNI4vgqtx8wnyjxAzrKBZtCzfm7mQ==
+"@ghextercortes/djs-pagination@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ghextercortes/djs-pagination/-/djs-pagination-2.0.1.tgz#0e44f271a488524bf01f23f2bf6461095e370ea4"
+  integrity sha512-EppFEMgRDYfeAAWtWVrWwI+Cc2QjuWFqgZ9bVdlb7zGqT3kn1+qi8kbp9W+1TjkEDAjQ9/0YOphY64WGqOrYSQ==
   dependencies:
     ms "^2.1.3"
 
@@ -280,10 +280,10 @@ readable-web-to-node-stream@^3.0.2:
   dependencies:
     readable-stream "^3.6.0"
 
-reciple@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/reciple/-/reciple-3.0.2.tgz#25351e55e105d3ef150991e8e6e2c73e822e62c3"
-  integrity sha512-9+ey97smV2y2c6u8v6JWUzhTAJk6It2kxMJo7nVZ+Zj6Er4jGAqMyhX2sFslKGHZhHnAGPEit7yEBUugUCz3Vw==
+reciple@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/reciple/-/reciple-3.0.3.tgz#0df841b4a00f2b9d0732d077393f9f2c74d84306"
+  integrity sha512-lBrkVAJwWgjzBKwzB9UOiTrxGeChiH24KlL1VF+fsCOoQI6Q6zUaE2ofYUtvhWKATZIu2CyxPMxlBGnLMtnGGg==
   dependencies:
     chalk "4.1.2"
     commander "^9.4.0"

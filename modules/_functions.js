@@ -33,6 +33,8 @@ module.exports.searchDocs = (query) => {
     });
 
     docsData = docsData.sort((a,b) => {
+        if (a.name == query) return -3;
+        if (a.name.includes(query)) return -2;
         if (a.kindString == "Class") return -1;
         if (a.kindString == "Interface") return 1;
         if (a.kindString == "Function") return 2;
@@ -48,25 +50,36 @@ module.exports.searchDocs = (query) => {
 
 module.exports.resultsEmbed = (results, client) => {
     const { docsVersion } = require('./docs');
+    const pages = [];
+
     const embed = new EmbedBuilder()
-        .setAuthor({ name: 'Reciple.js.org', iconURL: client?.user.displayAvatarURL(), url: 'https://reciple.js.org' })
-        .setColor('Blurple');
+        .setAuthor({ name: `Reciple ${docsVersion}`, iconURL: client?.user.displayAvatarURL(), url: 'https://reciple.js.org' })
+        .setColor('Blurple')
+        .setTimestamp();
     
     let description = '';
-    results = results.length > 30 ? results.slice(0, 30) : results;
+    let count = 0;
+    let page = 1;
 
     for (const data of results) {
         const emoji = emojis[data.kindString] ?? emojis.Other;
         const alias = aliases[data.kindString] ?? '';
 
         description += `${emoji} [**${data.name}**](https://reciple.js.org/${alias ? alias + data.name : ''})\n`;
+        count++;
+
+        if (count >= 10) {
+            embed.setFooter({ text: `Page ${page}` });
+            embed.setDescription(description || ' ');
+            pages.push(new EmbedBuilder(embed.data));
+
+            count = 0;
+            description = '';
+            page++;
+        }
     }
 
-    embed.setDescription(description || ' ');
-    embed.setFooter({ text: `Reciple - ${docsVersion}` });
-    embed.setTimestamp();
-
-    return embed;
+    return pages;
 }
 
 module.exports.getInfoEmbed = (data, client) => {
@@ -75,7 +88,7 @@ module.exports.getInfoEmbed = (data, client) => {
     const alias = aliases[data.kindString] ?? '';
     const url = `https://reciple.js.org/${alias ? alias + data.name : ''}`;
     const embed = new EmbedBuilder()
-        .setAuthor({ name: 'Reciple.js.org', iconURL: client?.user.displayAvatarURL(), url: 'https://reciple.js.org' })
+        .setAuthor({ name: `Reciple ${docsVersion}`, iconURL: client?.user.displayAvatarURL(), url: 'https://reciple.js.org' })
         .setColor('Blurple');
 
     embed.setTitle(data.name);
@@ -95,5 +108,5 @@ module.exports.getInfoEmbed = (data, client) => {
         }
     ]);
 
-    return embed;
+    return [embed];
 }

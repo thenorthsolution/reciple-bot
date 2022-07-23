@@ -1,5 +1,6 @@
-const { InteractionType } = require("discord.js");
-const { RecipleScript, InteractionCommandBuilder } = require("reciple");
+const { ButtonPagination, ComponentButtonBuilder, PaginationButtonType, OnDisableAction } = require("@ghextercortes/djs-pagination");
+const { InteractionType, ButtonBuilder, ButtonStyle } = require("discord.js");
+const { RecipleScript, InteractionCommandBuilder, RecipleHaltedCommandReason, botHasExecutePermissions } = require("reciple");
 const { searchDocs, resultsEmbed, getInfoEmbed } = require('./_functions');
 
 /**
@@ -11,6 +12,7 @@ const script = {
         new InteractionCommandBuilder()
             .setName('docs')
             .setDescription('Query Reciple docs.')
+            .setRequiredBotPermissions('ViewChannel', 'UseExternalEmojis')
             .addStringOption(query => query
                 .setName('query')
                 .setDescription('Search docs.')
@@ -21,8 +23,29 @@ const script = {
                 const interaction = command.interaction;
                 const query = interaction.options.getString('query', true);
                 const data = searchDocs(query);
+                const pages = !data.length ? [] : data.length == 1 ? getInfoEmbed(data[0], command.client) : resultsEmbed(data, command.client);
+                
+                if (!pages.length) return interaction.reply('No results found');
 
-                interaction.reply({ embeds: [data.length == 1 ? getInfoEmbed(data[0], command.client) : resultsEmbed(data, command.client)] });
+                const pagination = new ButtonPagination({
+                    buttons:
+                        interaction.channel.permissionsFor(interaction.guild.members.me).has(command.builder.requiredBotPermissions) ?
+                            new ComponentButtonBuilder()
+                                .addButton(new ButtonBuilder().setLabel('Previous').setCustomId('prev').setStyle(ButtonStyle.Secondary), PaginationButtonType.PreviousPage)
+                                .addButton(new ButtonBuilder().setLabel('Next').setCustomId('next').setStyle(ButtonStyle.Secondary), PaginationButtonType.NextPage)
+                        : undefined,
+                    onDisable: OnDisableAction.DeleteComponents,
+                    singlePageNoButtons: true,
+                    pages: pages.map(m => ({ embeds: [m] }))
+                });
+
+                pagination.paginate(interaction).catch(err => command.client.logger.err(err));
+            })
+            .setHalt(async halt => {
+                if (halt.reason == RecipleHaltedCommandReason.MissingBotPermissions) {
+                    halt.executeData.interaction.reply('Not enought bot permissions').catch(() => {});
+                    return true;
+                }
             })
     ],
     onStart(client) {
