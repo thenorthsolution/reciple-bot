@@ -39,8 +39,6 @@ const script = {
                     pages: pages
                 });
                 
-                command.client.logger.log(pagination.pages);
-
                 pagination.paginate(interaction).catch(err => command.client.logger.err(err));
             })
             .setHalt(async halt => {
