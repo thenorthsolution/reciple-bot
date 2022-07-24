@@ -36,7 +36,7 @@ const script = {
                         : undefined,
                     onDisable: OnDisableAction.DeleteComponents,
                     singlePageNoButtons: true,
-                    pages: pages.map(m => ({ embeds: [m] }))
+                    pages: pages
                 });
 
                 pagination.paginate(interaction).catch(err => command.client.logger.err(err));
