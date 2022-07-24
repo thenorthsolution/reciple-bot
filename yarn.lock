@@ -31,10 +31,10 @@
     tslib "^2.4.0"
     undici "^5.7.0"
 
-"@ghextercortes/djs-pagination@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@ghextercortes/djs-pagination/-/djs-pagination-2.0.3.tgz#5875be84c19615abb8f9cce9abf6d7af6016fec7"
-  integrity sha512-+GbYKvGtkIzVfBRL17MkqyfZ/uIGIKpHpbx0IlShvQsFc4gBH+Y2sTenJhG89GiaMWT69Qa+7auPwRxWPB/Dkw==
+"@ghextercortes/djs-pagination@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@ghextercortes/djs-pagination/-/djs-pagination-2.0.4.tgz#cbcb7bef22937f532b1bf1360f3f210a76525e98"
+  integrity sha512-X0FmDfC/5euyf58oHAXvsoVvdzci1B3PljFZfibrNdvyW7uIeJ1WZKlYfjdwBcqntTBYingCWkgxOquxtEdtcw==
   dependencies:
     ms "^2.1.3"
 
