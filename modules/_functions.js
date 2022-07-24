@@ -15,10 +15,10 @@ const emojis = {
 const aliases = {
     "Class": "classes/",
     "Interface": "interfaces/",
-    "Function": "modules.html#",
+    "Function": "functions/",
     "Enumeration": "enums/",
-    "Variable": "modules.html#",
-    "Type alias": "modules.html#"
+    "Variable": "variables/",
+    "Type alias": "types/"
 }
 
 module.exports.searchDocs = (query) => {
