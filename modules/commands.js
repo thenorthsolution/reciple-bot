@@ -7,7 +7,7 @@ const { searchDocs, resultsEmbed, getInfoEmbed } = require('./_functions');
  * @type {RecipleScript}
  */
 const script = {
-    versions: '3.0.x',
+    versions: '3.1.x',
     commands: [
         new InteractionCommandBuilder()
             .setName('docs')
@@ -44,6 +44,10 @@ const script = {
             .setHalt(async halt => {
                 if (halt.reason == RecipleHaltedCommandReason.MissingBotPermissions) {
                     halt.executeData.interaction.reply('Not enought bot permissions').catch(() => {});
+                    return true;
+                } else if (halt.reason == RecipleHaltedCommandReason.Error) {
+                    halt.executeData.interaction.reply('An error occured').catch(() => {});
+                    halt.executeData.client.logger.err(halt.error);
                     return true;
                 }
             })

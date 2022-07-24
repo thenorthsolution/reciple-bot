@@ -1,15 +1,16 @@
 const { default: axios } = require("axios");
-const { RecipleScript } = require("reciple");
+const { RecipleScript, version } = require("reciple");
 
 /**
  * @type {RecipleScript}
  */
 const script = {
-    versions: '3.0.x',
+    versions: '3.1.x',
     docsData: [],
-    docsVersion: '3.0.0',
+    docsVersion: `v${version}`,
+    logger: null,
     async onStart(client) {
-        
+        this.logger = client.logger.cloneLogger({ loggerName: 'Docs' });
 
         return this.fetchDocs();
     },
@@ -25,6 +26,8 @@ const script = {
 
         this.docsData = fetch.children;
         this.docsVersion = fetch.name.split(' - ').pop() || this.docsVersion;
+        this.logger.warn(`Fetched docs ${this.docsVersion}!`);
+        this.logger.debug(this.docsData);
 
         setTimeout(() => this.fetchDocs(), 1000 * 60 * 20);
         return true;

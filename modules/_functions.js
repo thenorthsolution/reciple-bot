@@ -92,7 +92,8 @@ module.exports.getInfoEmbed = (data, client) => {
         .setAuthor({ name: `Reciple ${docsVersion}`, iconURL: client?.user.displayAvatarURL(), url: 'https://reciple.js.org' })
         .setColor('Blurple');
 
-    embed.setDescription(data?.signatures ? data?.signatures[0]?.comment.shortText || ' ' : ' ');
+    embed.setDescription(data?.signatures?.length ? data?.signatures[0]?.comment.summary[0]?.text || '*No description found*' : '*No description found*');
+    embed.setDescription(data?.comment?.summary ? data?.comment.summary[0]?.text || embed.data.description : embed.data.description);
     embed.setTitle(data.name);
     embed.setURL(url);
     embed.addFields([

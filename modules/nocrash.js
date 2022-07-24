@@ -1,5 +1,5 @@
 module.exports = {
-    versions: '3.0.x',
+    versions: '3.1.x',
     onStart(client) {
         process.on('uncaughtException', async (err) => {
             client.logger.err(err);
