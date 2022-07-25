@@ -27,7 +27,7 @@ const script = {
         this.docsData = fetch.children;
         this.docsVersion = fetch.name.split(' - ').pop() || this.docsVersion;
         this.logger.warn(`Fetched docs ${this.docsVersion}!`);
-        this.logger.debug(this.docsData);
+       	this.logger.debug(this.docsData);
 
         setTimeout(() => this.fetchDocs(), 1000 * 60 * 20);
         return true;

@@ -66,7 +66,7 @@ fileLogging:
   # enable if reciple will use the logger
   clientLogs: true
   # stringify logged JSONs
-  stringifyLoggedJSON: false
+  stringifyLoggedJSON: true
   # log file path
   logFilePath: './logs/latest.log'
 
@@ -114,4 +114,4 @@ ignoredFiles: []
 modulesFolder: 'modules'
 
 # Current version
-version: 3.1.1
+version: ^3.1.3
