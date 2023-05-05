@@ -9,9 +9,9 @@ content: |-
   # reciple.yml example
   token: YOUR_TOKEN_HERE
   ```
-  You can also use an environment variable as a token. Just create a `.env` file and put the token there, then replace the value of `token` in the reciple.yml to `env:YOUR_TOKEN_ENV`
+  You can also put your token into an environment variable. Just create a `.env` file and put the token there, then replace the value of `token` in the reciple.yml to `env:YOUR_TOKEN_ENV`
 
-  ```env
+  ```yml
   # .env example
   TOKEN="YOUR_TOKEN_HERE"
   ```
