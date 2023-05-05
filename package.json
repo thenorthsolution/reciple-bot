@@ -1,12 +1,25 @@
 {
+  "name": "reciple-app",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "npx reciple"
+    "build": "pnpm exec rimraf ./modules && pnpm exec tsc",
+    "start": "pnpm exec reciple",
+    "test": "pnpm exec reciple -c ./reciple.test.yml",
+    "dev": "pnpm exec tsc-watch -p ./tsconfig.json --onCompilationStarted \"pnpm exec rimraf ./modules\" --onSuccess \"pnpm run test\""
   },
   "dependencies": {
-    "@ghextercortes/djs-pagination": "^2.0.4",
-    "axios": "^0.27.2",
-    "discord.js": "^14.0.3",
-    "fallout-utility": "^1.4.3",
-    "reciple": "^3.1.3"
+    "axios": "^1.4.0",
+    "discord.js": "^14.10.2",
+    "discord.js-docs": "^0.3.0",
+    "fallout-utility": "^2.4.3",
+    "reciple": "^7.4.3",
+    "yaml": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "rimraf": "^4.4.1",
+    "tsc-watch": "^6.0.4",
+    "typescript": "^5.0.2"
   }
 }

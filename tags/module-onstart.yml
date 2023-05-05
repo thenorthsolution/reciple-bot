@@ -1,0 +1,17 @@
+id: module-onstart
+name: Module onStart
+pinned: true
+keywords: ['Returned false', 'Failed to load module']
+content: |-
+  `onStart` is a required module's method. It is executed when the module is started before the client is ready. It returns a boolean to determine if the module has been successfully loaded or not.
+
+  ```js
+  export default {
+    versions: '^7',
+    onStart() {
+      return true; // Return false to not successfuly load the module
+    }
+  }
+  ```
+
+  `onStart` can also return a [`Promise`](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>) boolean.

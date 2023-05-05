@@ -1,0 +1,16 @@
+id: module-versions
+name: Module versions
+pinned: true
+keywords: ['versioning']
+content: |-
+  The module's `versions` property tells the handler not to load a module when it's loading a module that is not made for that version of Reciple. This prevents errors when sharing codes, as people tend to blindly copy and paste codes.
+
+  ```js
+  export default {
+    versions: '^7', // You can also use an array, example: ['^5', '^7']
+    onStart() {
+      return true;
+    }
+  }
+  ```
+  [Learn more about semver](<https://semver.org/>)
