@@ -14,6 +14,7 @@ export class DocsParser extends BaseModule {
         this.commands = [
             new MessageCommandBuilder()
                 .setName('fetch-docs')
+                .addAliases('fd')
                 .setDescription('Fetch and update docs data')
                 .setDmPermission(true)
                 .setExecute(async ({ message }) => {

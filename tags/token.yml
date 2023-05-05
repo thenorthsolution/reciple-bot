@@ -1,0 +1,27 @@
+id: token
+name: Token
+pinned: true
+keywords: ['Login', 'Authentication']
+content: |-
+  Token can be configuired inside `reciple.yml` with the `token` property.
+
+  ```yml
+  # reciple.yml example
+  token: YOUR_TOKEN_HERE
+  ```
+  You can also use an environment variable as a token. Just create a `.env` file and put the token there, then replace the value of `token` in the reciple.yml to `env:YOUR_TOKEN_ENV`
+
+  ```env
+  # .env example
+  TOKEN="YOUR_TOKEN_HERE"
+  ```
+  ```yml
+  # reciple.yml example
+  token: env:TOKEN
+  ```
+  You can do the same concept with the cli flag
+  ```bash
+  npx reciple --token YOUR_TOKEN_HERE
+  or
+  npx reciple --token env:TOKEN
+  ```

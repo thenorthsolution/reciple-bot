@@ -50,6 +50,7 @@ export class Tags extends BaseModule {
                 }),
             new MessageCommandBuilder()
                 .setName('load-tags')
+                .addAliases('lt')
                 .setDescription('Load and update tags')
                 .setExecute(async ({ message }) => {
                     if (!Utils.parseDevIds().includes(message.author.id)) return;
@@ -83,7 +84,7 @@ export class Tags extends BaseModule {
                         name: r.name,
                         value: r.id
                     };
-                })
+                }).splice(0, 20)
             ).catch(() => {});
         });
     }
