@@ -16,6 +16,9 @@ dependencies:
   reciple:
     specifier: ^7.4.3
     version: 7.4.3(discord.js@14.10.2)
+  yaml:
+    specifier: ^2.2.2
+    version: 2.2.2
 
 devDependencies:
   '@types/node':

@@ -13,7 +13,8 @@
     "discord.js": "^14.10.2",
     "discord.js-docs": "^0.3.0",
     "fallout-utility": "^2.4.3",
-    "reciple": "^7.4.3"
+    "reciple": "^7.4.3",
+    "yaml": "^2.2.2"
   },
   "devDependencies": {
     "@types/node": "^18.15.3",

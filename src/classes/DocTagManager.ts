@@ -1,5 +1,5 @@
 import { BaseManager, Collection } from 'discord.js';
-import { DocsParser } from '../DocsParser.js';
+import { DocsParser } from '../docs/DocsParser.js';
 import axios from 'axios';
 import Doc from 'discord.js-docs';
 

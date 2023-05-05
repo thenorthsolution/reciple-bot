@@ -1,9 +1,10 @@
 import { Collection, SlashCommandSubcommandBuilder } from 'discord.js';
-import { BaseModule } from './BaseModule.js';
+import { BaseModule } from '../BaseModule.js';
 import { RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
 import DocsParser from './DocsParser.js';
 import { DocElement } from 'discord.js-docs';
 import { limitString } from 'fallout-utility';
+import Utils from '../utils/Utils.js';
 
 export class Docs extends BaseModule {
     public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
@@ -61,11 +62,11 @@ export class Docs extends BaseModule {
             if (!interaction.isAutocomplete()) return;
 
             const command = interaction.commandName;
-            const subcommand = interaction.options.getSubcommand() as 'client'|'reciple';
+            const subcommand = interaction.options.getSubcommand(false) as 'client'|'reciple';
             const option = interaction.options.getFocused(true);
             const query = option.value.trim();
 
-            if (command !== 'docs' && option.name !== 'query') return;
+            if (command !== 'docs' || option.name !== 'query') return;
 
             const docs = DocsParser.getDocsData(subcommand);
             const results = docs.search(query, { excludePrivateElements: true }) || [];
@@ -77,26 +78,18 @@ export class Docs extends BaseModule {
                         value: r.formattedName
                     };
                 })
-            );
+            ).catch(() => {});
         });
     }
 
     public subcommandOptions(subcommand: SlashCommandSubcommandBuilder): SlashCommandSubcommandBuilder {
-        return subcommand
+        return Utils.commonSlashCommandOptions(subcommand
             .addStringOption(query => query
                 .setName('query')
                 .setDescription('Search the docs for classes, functions, or typedefs')
                 .setRequired(true)
                 .setAutocomplete(true)
-            )
-            .addUserOption(target => target
-                .setName('target')
-                .setDescription('User to mention')
-            )
-            .addBooleanOption(hide => hide
-                .setName('hide')
-                .setDescription('Hide command response')
-            );
+            ));
     }
 }
 
