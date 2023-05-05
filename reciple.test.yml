@@ -1,0 +1,7 @@
+extends: reciple.yml
+
+applicationCommandRegister:
+  allowRegisterGlobally: false
+  allowRegisterToGuilds: true
+  registerToGuilds:
+    - env:DEV_GUILD
