@@ -1,0 +1,13 @@
+id: import-builders
+name: Import Builders
+pinned: true
+keywords: ['import builders', 'require builders', '']
+content: |-
+  ```diff
+  - import { ContextMenuCommandBuilder, SlashCommandBuilder } from 'discord.js'; // ESM
+  - const { ContextMenuCommandBuilder, SlashCommandBuilder } = require('reciple'); // CJS
+  + import { ContextMenuCommandBuilder, SlashCommandBuilder } from 'discord.js'; // ESM
+  + const { ContextMenuCommandBuilder, SlashCommandBuilder } = require('reciple'); // CJS
+  ```
+
+  Import the command builders from `reciple` instead of `discord.js`
