@@ -86,7 +86,7 @@ export class Docs extends BaseModule {
         return Utils.commonSlashCommandOptions(subcommand
             .addStringOption(query => query
                 .setName('query')
-                .setDescription('Search the docs for classes, functions, or typedefs')
+                .setDescription('Class or Class#method combination to search for')
                 .setRequired(true)
                 .setAutocomplete(true)
             ));
