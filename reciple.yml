@@ -100,6 +100,7 @@ client:
     - Guilds
     - GuildMessages
     - MessageContent
+    - DirectMessages
 
 # Don't change this value
 version: ^7.4.2
