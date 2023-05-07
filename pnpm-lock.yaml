@@ -5,8 +5,8 @@ dependencies:
     specifier: ^1.4.0
     version: 1.4.0
   discord.js:
-    specifier: ^14.10.2
-    version: 14.10.2
+    specifier: ^14.11.0
+    version: 14.11.0
   discord.js-docs:
     specifier: ^0.3.0
     version: 0.3.0
@@ -15,7 +15,7 @@ dependencies:
     version: 2.4.3
   reciple:
     specifier: ^7.4.3
-    version: 7.4.3(discord.js@14.10.2)
+    version: 7.4.3(discord.js@14.11.0)
   yaml:
     specifier: ^2.2.2
     version: 2.2.2
@@ -80,8 +80,8 @@ packages:
     engines: {node: '>=16.9.0'}
     dev: false
 
-  /@discordjs/ws@0.8.2:
-    resolution: {integrity: sha512-av2yboE9VrBn0xyObiMMCrBbls+ucjjR3MNI5hc78hdNnYLoZQuvEVLGN8h/I+W1Vr08WATxke69RXsNZS5FBQ==}
+  /@discordjs/ws@0.8.3:
+    resolution: {integrity: sha512-hcYtppanjHecbdNyCKQNH2I4RP9UrphDgmRgLYrATEQF1oo4sYSve7ZmGsBEXSzH72MO2tBPdWSThunbxUVk0g==}
     engines: {node: '>=16.9.0'}
     dependencies:
       '@discordjs/collection': 1.5.1
@@ -119,12 +119,12 @@ packages:
       fastq: 1.15.0
     dev: false
 
-  /@reciple/client@7.4.2(discord.js@14.10.2):
+  /@reciple/client@7.4.2(discord.js@14.11.0):
     resolution: {integrity: sha512-odqdAg0DMw4OyMJflCX2PHGrpUoGVv6E3PGYc9sb4naWzu3HVuwy/CGe5y/+CZ2lgWlDtdSyPgcROEWiTY4Xsw==}
     peerDependencies:
       discord.js: ^14.9.0
     dependencies:
-      discord.js: 14.10.2
+      discord.js: 14.11.0
       fallout-utility: 2.4.3
       kleur: 4.1.5
       semver: 7.5.0
@@ -267,8 +267,8 @@ packages:
       - encoding
     dev: false
 
-  /discord.js@14.10.2:
-    resolution: {integrity: sha512-yPMJ/vGSWJP8WbbfPX18WGU2wOLBjL+OKVOVKI1eWx3ICcUhDg5MvFkg5aNGiokjPfKlAgqnFIUH0jl59ONHrQ==}
+  /discord.js@14.11.0:
+    resolution: {integrity: sha512-CkueWYFQ28U38YPR8HgsBR/QT35oPpMbEsTNM30Fs8loBIhnA4s70AwQEoy6JvLcpWWJO7GY0y2BUzZmuBMepQ==}
     engines: {node: '>=16.9.0'}
     dependencies:
       '@discordjs/builders': 1.6.3
@@ -276,7 +276,7 @@ packages:
       '@discordjs/formatters': 0.3.1
       '@discordjs/rest': 1.7.1
       '@discordjs/util': 0.3.1
-      '@discordjs/ws': 0.8.2
+      '@discordjs/ws': 0.8.3
       '@sapphire/snowflake': 3.4.2
       '@types/ws': 8.5.4
       discord-api-types: 0.37.41
@@ -627,15 +627,15 @@ packages:
       readable-stream: 3.6.2
     dev: false
 
-  /reciple@7.4.3(discord.js@14.10.2):
+  /reciple@7.4.3(discord.js@14.11.0):
     resolution: {integrity: sha512-NIZJYhSYmE6tAcsc1pcHKqq4mZPmmosv0tjnrsrtbCk4uazJKn3eauq27RFKnNa8VHERpuedpe+YltF5VeM+Hg==}
     hasBin: true
     peerDependencies:
       discord.js: ^14.7.1
     dependencies:
-      '@reciple/client': 7.4.2(discord.js@14.10.2)
+      '@reciple/client': 7.4.2(discord.js@14.11.0)
       commander: 10.0.1
-      discord.js: 14.10.2
+      discord.js: 14.11.0
       dotenv: 16.0.3
       fallout-utility: 2.4.3
       globby: 13.1.4

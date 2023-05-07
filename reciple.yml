@@ -96,8 +96,8 @@ modules:
 
 # Discord.js client options
 client:
-  partial:
-    - Channel
+  partials:
+    - 1
   intents:
     - Guilds
     - GuildMessages
