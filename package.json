@@ -6,7 +6,9 @@
     "build": "pnpm exec rimraf ./modules && pnpm exec tsc",
     "start": "pnpm exec reciple",
     "test": "pnpm exec reciple -c ./reciple.test.yml",
-    "dev": "pnpm exec tsc-watch -p ./tsconfig.json --onCompilationStarted \"pnpm exec rimraf ./modules\" --onSuccess \"pnpm run test\""
+    "build:start": "pnpm run build && pnpm run start",
+    "build:test": "pnpm run build && pnpm run test",
+    "dev": "pnpm exec nodemon --watch src --ext ts,mts,cts --exec 'pnpm run build:test'"
   },
   "dependencies": {
     "axios": "^1.4.0",
@@ -18,8 +20,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.3",
+    "nodemon": "^2.0.22",
     "rimraf": "^4.4.1",
-    "tsc-watch": "^6.0.4",
     "typescript": "^5.0.2"
   }
 }
