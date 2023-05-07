@@ -12,6 +12,7 @@ export class Docs extends BaseModule {
             new SlashCommandBuilder()
                 .setName('docs')
                 .setDescription('Display docs for certain package')
+                .setDMPermission(true)
                 .addSubcommand(reciple => this.subcommandOptions(reciple)
                     .setName('reciple')
                     .setDescription('Display docs for reciple')
@@ -20,7 +21,6 @@ export class Docs extends BaseModule {
                     .setName('client')
                     .setDescription('Display docs for @reciple/client')
                 )
-                .setDMPermission(true)
                 .setExecute(async ({ interaction }) => {
                     const subcommand = interaction.options.getSubcommand() as 'client'|'reciple';
                     const query = interaction.options.getString('query', true).replace('()', '');

@@ -24,6 +24,7 @@ export class Tags extends BaseModule {
             Utils.commonSlashCommandOptions(new SlashCommandBuilder()
                 .setName('tag')
                 .setDescription('Send a tag to chat')
+                .setDMPermission(true)
                 .addStringOption(query => query
                     .setName('query')
                     .setDescription('Search for tag to send')
@@ -52,6 +53,7 @@ export class Tags extends BaseModule {
                 .setName('load-tags')
                 .addAliases('lt')
                 .setDescription('Load and update tags')
+                .setDmPermission(true)
                 .setExecute(async ({ message }) => {
                     if (!Utils.parseDevIds().includes(message.author.id)) return;
 
