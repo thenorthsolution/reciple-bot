@@ -6,7 +6,6 @@ content: |-
   ```
   ModuleError: NoVersionsSupported Module script is missing the required (versions: string|string[]) property
   ```
-
   • Make you defined `versions` in your module
   • Check if you mispelled `versions`
   • Make sure you exported your module using `module.exports` or `export default`
