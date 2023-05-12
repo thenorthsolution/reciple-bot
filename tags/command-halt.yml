@@ -1,0 +1,35 @@
+id: command-halt
+name: Command halt
+keywords: ['error', 'cooldown', 'error handling', 'cooldown message']
+pinned: true
+content: |-
+  • Use [`setHalt`](<https://reciple.js.org/docs/client/main/classes/BaseCommandBuilder#setHalt>) to set command halt handler
+  • Return true if the command halt is handled
+
+  ```js
+  // Example command
+  import { MessageCommandBuilder, CommandHaltReason } from 'reciple';
+
+  new MessageCommandBuilder()
+    .setName('ping')
+    .setDescription('Pong')
+    .setExecute(async ({ message }) => {
+      await message.reply('Pong');
+    })
+    .setHalt(async haltData => {
+      if (halt.reason === CommandHaltReason.Cooldown) {
+        const cooldown = halt.cooldownData.endsAt.getTime() - Date.now();
+
+        await halt.executeData.message.reply(`Wait for ${cooldown}ms`);
+        return true;
+      }
+
+      if (halt.reason === CommandHaltReason.Error) {
+        await halt.executeDate.message.reply(`An error occured!`);
+        return true;
+      }
+
+      return false; // Return false to unhandled command halt
+    });
+  ```
+  [See more command halt reasons](<https://reciple.js.org/docs/client/main/typedefs/CommandHaltReason>)
