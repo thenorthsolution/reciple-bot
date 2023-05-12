@@ -1,0 +1,24 @@
+id: logger
+name: Reciple logger
+keywords: ['logger', 'console log', 'clone logger', 'create logger']
+pinned: true
+content: |-
+  • You can access the logger object via [`RecipleClient#logger`](<https://reciple.js.org/docs/client/main/classes/RecipleClient#logger>)
+  • To clone logger you can use `client.logger.clone({ name: 'MyLogger' })`
+
+  ```js
+  // client logger
+  client.logger.log(`Test`); // [00:00:00 INFO] Test
+  client.logger.warn(`Test`); // [00:00:00 WARN] Test
+  client.logger.error(`Test`); // [00:00:00 ERROR] Test
+  client.logger.debug(`Test`); // [00:00:00 DEBUG] Test
+  ```
+  ```js
+  // cloned client logger
+  const logger = client.logger.clone({ name: 'MyLogger' });
+
+  logger.log(`Test`); // [00:00:00 INFO][MyLogger] Test
+  logger.warn(`Test`); // [00:00:00 WARN][MyLogger] Test
+  logger.error(`Test`); // [00:00:00 ERROR][MyLogger] Test
+  logger.debug(`Test`); // [00:00:00 DEBUG][MyLogger] Test
+  ```
