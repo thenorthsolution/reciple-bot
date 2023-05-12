@@ -1,5 +1,7 @@
 extends: reciple.yml
 
+token: env:TEST_TOKEN
+
 applicationCommandRegister:
   allowRegisterGlobally: false
   allowRegisterToGuilds: true
