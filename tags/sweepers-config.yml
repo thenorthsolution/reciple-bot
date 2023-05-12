@@ -4,6 +4,7 @@ keywords: ['cache sweepers', 'clean cache', 'clear cache', 'sweeping caches']
 content: |-
   • Create a js file that contains your sweeper options
   • Use the `--sweepers-config <file>` flag
+  • [Learn more about sweepers](<https://discordjs.guide/miscellaneous/cache-customization.html#sweeping-caches>)
 
   ```js
   // sweepers.js
