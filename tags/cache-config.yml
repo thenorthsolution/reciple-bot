@@ -1,0 +1,19 @@
+id: cache-config
+name: Cache config
+keywords: ['custom cache', 'limit cache', 'no cache']
+content: |-
+  • Create a js file that contains your cache config
+  • Use the `--cache-config <file>` flag
+
+  ```js
+  // caching.js
+  import { Options } from 'discord.js';
+
+  export default Options.cacheWithLimits({
+    ...Options.DefaultMakeCacheSettings,
+		ReactionManager: 0 // Will not cache any reaction
+  });
+  ```
+  ```
+  npx reciple --cache-config caching.js
+  ```
