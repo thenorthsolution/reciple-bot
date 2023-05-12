@@ -11,7 +11,7 @@ content: |-
 
   export default Options.cacheWithLimits({
     ...Options.DefaultMakeCacheSettings,
-		ReactionManager: 0 // Will not cache any reaction
+    ReactionManager: 0 // Will not cache any reaction
   });
   ```
   ```
