@@ -16,9 +16,13 @@ export class Invite extends BaseModule {
                                 type: ComponentType.ActionRow,
                                 components: [
                                     new ButtonBuilder()
-                                        .setLabel('Invite')
+                                        .setLabel('Invite Bot')
                                         .setStyle(ButtonStyle.Link)
-                                        .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user?.id}&permissions=0&scope=applications.commands`)
+                                        .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user?.id}&permissions=0&scope=applications.commands`),
+                                    new ButtonBuilder()
+                                        .setLabel('Support Server')
+                                        .setStyle(ButtonStyle.Link)
+                                        .setURL(`2CattJYNpw`)
                                 ]
                             }
                         ],
