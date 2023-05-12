@@ -14,8 +14,8 @@ dependencies:
     specifier: ^2.4.3
     version: 2.4.3
   reciple:
-    specifier: ^7.6.1
-    version: 7.6.1(discord.js@14.11.0)
+    specifier: ^7.6.2
+    version: 7.6.2(discord.js@14.11.0)
   yaml:
     specifier: ^2.2.2
     version: 2.2.2
@@ -119,8 +119,8 @@ packages:
       fastq: 1.15.0
     dev: false
 
-  /@reciple/client@7.5.0(discord.js@14.11.0):
-    resolution: {integrity: sha512-oDHtMNFzedpQTl0p1v+oHjzhg8sb6FWqycLN2eHP/mllAjS+RKcHKg3kQJEPfDkOs3nJy1BC/9XPYAMLJpw8ZA==}
+  /@reciple/client@7.5.1(discord.js@14.11.0):
+    resolution: {integrity: sha512-gffaM81vbPz9RoBcE20929eKzQ2olRCi2H/oGL1Odr/Lots0MI/NrkeamNQQoyL61SGVEHI/AFh8CSGyUBFR+g==}
     peerDependencies:
       discord.js: ^14.9.0
     dependencies:
@@ -689,13 +689,13 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /reciple@7.6.1(discord.js@14.11.0):
-    resolution: {integrity: sha512-5YK4gig4/GxmnIrD4WCLVl8yg5C22tGYobk7DOl2UdXhXr60ZyVb43ADNI6GNVVhVTe1dTsnJfYwAR8tO3GJ0Q==}
+  /reciple@7.6.2(discord.js@14.11.0):
+    resolution: {integrity: sha512-8Wkw3/kL3x+oJHGqHv0PsOSZlXdqnVc3NJShrhkTfLsO5vVLu0Mfaxz7ZY2YC+W5dkcec8OLFjkhqzbRBScfNw==}
     hasBin: true
     peerDependencies:
       discord.js: ^14.7.1
     dependencies:
-      '@reciple/client': 7.5.0(discord.js@14.11.0)
+      '@reciple/client': 7.5.1(discord.js@14.11.0)
       commander: 10.0.1
       discord.js: 14.11.0
       dotenv: 16.0.3
