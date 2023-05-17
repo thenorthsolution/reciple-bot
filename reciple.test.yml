@@ -7,3 +7,6 @@ applicationCommandRegister:
   allowRegisterToGuilds: true
   registerToGuilds:
     - env:DEV_GUILD
+
+logger:
+  debugmode: true

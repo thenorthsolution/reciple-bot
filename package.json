@@ -18,6 +18,7 @@
     "fallout-utility": "^2.5.0",
     "reciple": "^7.6.5",
     "reciple-dev-commands": "^1.0.1",
+    "sourcebin-wrapper": "^1.6.0",
     "yaml": "^2.2.2"
   },
   "devDependencies": {
