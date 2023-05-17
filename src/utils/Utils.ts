@@ -1,9 +1,12 @@
 import { AnySlashCommandBuilder, RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { SlashCommandSubcommandBuilder } from 'discord.js';
+import DevCommands from '../DevCommands.js';
 
 export class Utils extends BaseModule {
     public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+        DevCommands.devUsers = this.parseDevIds();
+
         return true;
     }
 

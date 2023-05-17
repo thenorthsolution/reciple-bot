@@ -11,7 +11,7 @@ export class DocsParser extends BaseModule {
     public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
         this.client = client;
 
-        this.commands = [
+        this.devCommands = [
             new MessageCommandBuilder()
                 .setName('fetch-docs')
                 .addAliases('fd')

@@ -48,15 +48,16 @@ export class Tags extends BaseModule {
                         content: `${targetMessage}\n${tag.content}`,
                         ephemeral: hidden
                     });
-                }),
+                })
+        ];
+
+        this.devCommands = [
             new MessageCommandBuilder()
                 .setName('load-tags')
                 .addAliases('lt')
                 .setDescription('Load and update tags')
                 .setDmPermission(true)
                 .setExecute(async ({ message }) => {
-                    if (!Utils.parseDevIds().includes(message.author.id)) return;
-
                     const reply = await message.reply(`Updating tags!`);
 
                     await this.parseTagsDir();
