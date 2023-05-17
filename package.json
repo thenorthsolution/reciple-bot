@@ -11,11 +11,13 @@
     "dev": "pnpm exec nodemon --watch src --ext ts,mts,cts --exec \"pnpm run build:test\" --signal SIGHUP"
   },
   "dependencies": {
+    "@reciple/client": "^7.5.4",
     "axios": "^1.4.0",
     "discord.js": "^14.11.0",
     "discord.js-docs": "^0.3.0",
     "fallout-utility": "^2.5.0",
     "reciple": "^7.6.5",
+    "reciple-dev-commands": "^1.0.1",
     "yaml": "^2.2.2"
   },
   "devDependencies": {

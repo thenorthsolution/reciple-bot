@@ -86,8 +86,8 @@ modules:
   # Reciple modules folders
   #   You can add multiple folders by adding the folder path or using glob patterns
   modulesFolders:
-    - ./modules
     - ./modules/*
+    - ./modules
   # Excluded files or folders
   #   You can add the file/folder name or use glob patterns
   exclude: ['BaseModule.js', 'classes']

@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@reciple/client':
+    specifier: ^7.5.4
+    version: 7.5.4(discord.js@14.11.0)
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -16,6 +19,9 @@ dependencies:
   reciple:
     specifier: ^7.6.5
     version: 7.6.5(discord.js@14.11.0)
+  reciple-dev-commands:
+    specifier: ^1.0.1
+    version: 1.0.1(@reciple/client@7.5.4)
   yaml:
     specifier: ^2.2.2
     version: 2.2.2
@@ -780,6 +786,14 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /reciple-dev-commands@1.0.1(@reciple/client@7.5.4):
+    resolution: {integrity: sha512-w5mwk/Tgl7I/IUhexi67/EXHxptgRfrcyf4u93iqpWGmFRIK27lUQhIZWO1BisC5kGLUFdBt7pFBWcLDPK80qg==}
+    peerDependencies:
+      '@reciple/client': ^7.5.4
+    dependencies:
+      '@reciple/client': 7.5.4(discord.js@14.11.0)
+    dev: false
 
   /reciple@7.6.5(discord.js@14.11.0):
     resolution: {integrity: sha512-rQlJpnDhnsrwTIsya/o2klfkUF3IGtUPwBU4lzR+3v+c90uUQVKRjRInau8ezrey4kqpwVYLt2xNPphgFhWFTg==}
