@@ -1,7 +1,6 @@
 import { MessageCommandBuilder, RecipleClient, RecipleModule, recursiveDefaults } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import Doc, { DocElement, DocType } from 'discord.js-docs';
-import Utils from '../utils/Utils.js';
 
 export class DocsParser extends BaseModule {
     public client!: RecipleClient;
@@ -18,8 +17,6 @@ export class DocsParser extends BaseModule {
                 .setDescription('Fetch and update docs data')
                 .setDmPermission(true)
                 .setExecute(async ({ message }) => {
-                    if (!Utils.parseDevIds().includes(message.author.id)) return;
-
                     const links = `- ${this.createRawDocJsonURL('client', 'main')}\n` +
                                 `- ${this.createRawDocJsonURL('reciple', 'main')}`;
 
