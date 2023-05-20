@@ -37,7 +37,10 @@ export class SourceBin extends BaseModule {
     }
 
     public async getMessageContent(message: Message): Promise<{ type?: string; content: string; }|undefined> {
-        if (!message.attachments.size) return { content: trimChars(message.content, '`', '```') } || undefined;
+        if (!message.attachments.size) {
+            const content = trimChars(message.content, '`', '```');
+            return content ? { content } : undefined;
+        }
 
         const attachment = message.attachments.find(a => a.contentType?.startsWith('text/') || a.contentType?.startsWith('application/'));
         const [_cntnt, type] = (attachment?.contentType?.split(';')[0]?.split('/') || []) as string[];
