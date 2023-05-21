@@ -1,7 +1,7 @@
 import { ContextMenuCommandBuilder, RecipleClient, RecipleModule } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { Message } from 'discord.js';
-import { create, BinFile } from 'sourcebin-wrapper';
+import { create } from '@falloutstudios/sourcebin.js';
 import { trimChars } from 'fallout-utility';
 
 export class SourceBin extends BaseModule {
@@ -24,9 +24,8 @@ export class SourceBin extends BaseModule {
                     }
 
                     const bin = await this.createSourceBin(content.content, {
-                        lang: content?.type,
                         title: `Generated bin from ${message.author.tag}'s message`,
-                        description: `Generated from: ${message.url}`
+                        description: `${message.url}`
                     });
 
                     await interaction.editReply(`https://sourceb.in/${bin}`);
@@ -36,7 +35,7 @@ export class SourceBin extends BaseModule {
         return true;
     }
 
-    public async getMessageContent(message: Message): Promise<{ type?: string; content: string; }|undefined> {
+    public async getMessageContent(message: Message): Promise<{ type?: string; content: string; filename?: string; }|undefined> {
         if (!message.attachments.size) {
             const content = trimChars(message.content, '`', '```');
             return content ? { content } : undefined;
@@ -48,19 +47,19 @@ export class SourceBin extends BaseModule {
 
         const request = await fetch(attachment.url);
         const content = request.ok ? await request.text() : undefined;
-        return content ? { type, content } : undefined;
+        return content ? { type, content, filename: attachment.name } : undefined;
     }
 
-    public async createSourceBin(content: string, options?: { lang?: string; title?: string; description?: string; }): Promise<string> {
-        const bin = await create([
-            new BinFile({
-                content,
-                languageId: options?.lang
-            }),
-        ],
-        {
+    public async createSourceBin(content: string, options?: { title?: string; description?: string; name?: string; }): Promise<string> {
+        const bin = await create({
+            title: options?.title,
             description: options?.description,
-            title: options?.title
+            files: [
+                {
+                    content,
+                    name: options?.name
+                }
+            ]
         });
 
         return typeof bin === 'string' ? bin : bin.key;

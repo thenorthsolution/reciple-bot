@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@falloutstudios/sourcebin.js':
+    specifier: ^1.0.0
+    version: 1.0.0
   '@reciple/client':
     specifier: ^7.5.4
     version: 7.5.4(discord.js@14.11.0)
@@ -25,9 +28,6 @@ dependencies:
   reciple-dev-commands:
     specifier: ^1.0.1
     version: 1.0.1(@reciple/client@7.5.4)
-  sourcebin-wrapper:
-    specifier: ^1.6.0
-    version: 1.6.0
   yaml:
     specifier: ^2.2.2
     version: 2.2.2
@@ -111,6 +111,16 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+    dev: false
+
+  /@falloutstudios/sourcebin.js@1.0.0:
+    resolution: {integrity: sha512-2mud0mn26j9j7yajBvv5uELi0NnVwxuB6Q6oyJAGT2hKO/Ue2SPk9mRW4lO89lFLW9Su8DHNB0L+yoHWpsuzgA==}
+    dependencies:
+      '@discordjs/collection': 1.5.1
+      axios: 1.4.0
+      fallout-utility: 2.5.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@isaacs/cliui@8.0.2:
@@ -204,10 +214,6 @@ packages:
   /@sapphire/snowflake@3.4.2:
     resolution: {integrity: sha512-KJwlv5gkGjs1uFV7/xx81n3tqgBwBJvH94n1xDyH3q+JSmtsMeSleJffarEBfG2yAFeJiFA4BnGOK6FFPHc19g==}
     engines: {node: '>=v14.0.0', npm: '>=7.0.0'}
-    dev: false
-
-  /@sourcebin/linguist@0.0.2:
-    resolution: {integrity: sha512-hleL3Mp5D5Fnwglpfkgj6iWlGQ46gckjlaqXCIkh092HDiC4WP+LONZI0kHMDPCMe5sa0zjM0wLs1L+sEVA4gA==}
     dev: false
 
   /@tokenizer/token@0.3.0:
@@ -925,15 +931,6 @@ packages:
   /slash@4.0.0:
     resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
     engines: {node: '>=12'}
-    dev: false
-
-  /sourcebin-wrapper@1.6.0:
-    resolution: {integrity: sha512-YY2FOVz8OJ4Rm1ZXEZxx4p6T84FDXXVVsDODBDLT4rAvbPQ4z3196gu0dAzIX+d1AhOpI2s+Giph+qJb6NwlSA==}
-    dependencies:
-      '@sourcebin/linguist': 0.0.2
-      node-fetch: 2.6.9
-    transitivePeerDependencies:
-      - encoding
     dev: false
 
   /streamsearch@1.1.0:
