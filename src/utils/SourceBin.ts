@@ -24,7 +24,7 @@ export class SourceBin extends BaseModule {
                     }
 
                     const bin = await this.createSourceBin(content.content, {
-                        title: `Generated bin from ${message.author.tag}'s message`,
+                        title: `Generated from ${message.author.tag}'s message`,
                         description: `${message.url}`
                     });
 
