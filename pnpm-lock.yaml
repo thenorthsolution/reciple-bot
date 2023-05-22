@@ -2,11 +2,11 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@falloutstudios/sourcebin.js':
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.1
+    version: 1.0.1
   '@reciple/client':
-    specifier: ^7.5.4
-    version: 7.5.4(discord.js@14.11.0)
+    specifier: ^7.6.0
+    version: 7.6.0(discord.js@14.11.0)
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -23,11 +23,11 @@ dependencies:
     specifier: ^2.1.3
     version: 2.1.3
   reciple:
-    specifier: 7.7.0-dev.6
-    version: 7.7.0-dev.6(discord.js@14.11.0)
+    specifier: 7.7.0
+    version: 7.7.0(discord.js@14.11.0)
   reciple-dev-commands:
-    specifier: ^1.0.1
-    version: 1.0.1(@reciple/client@7.5.4)
+    specifier: ^1.0.2
+    version: 1.0.2(@reciple/client@7.6.0)
   yaml:
     specifier: ^2.2.2
     version: 2.2.2
@@ -37,14 +37,14 @@ devDependencies:
     specifier: ^0.7.31
     version: 0.7.31
   '@types/node':
-    specifier: ^20.1.7
-    version: 20.1.7
+    specifier: ^20.2.3
+    version: 20.2.3
   nodemon:
     specifier: ^2.0.22
     version: 2.0.22
   rimraf:
-    specifier: ^5.0.0
-    version: 5.0.0
+    specifier: ^5.0.1
+    version: 5.0.1
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -113,8 +113,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@falloutstudios/sourcebin.js@1.0.0:
-    resolution: {integrity: sha512-2mud0mn26j9j7yajBvv5uELi0NnVwxuB6Q6oyJAGT2hKO/Ue2SPk9mRW4lO89lFLW9Su8DHNB0L+yoHWpsuzgA==}
+  /@falloutstudios/sourcebin.js@1.0.1:
+    resolution: {integrity: sha512-Vp6MmYMVlGg1sWp57UFoRES2/Eb7DwN+P6FqIOULt2/HFyMbCqEO28HiY927efA2eavWcFSEowfQEEXMEx6U4w==}
     dependencies:
       '@discordjs/collection': 1.5.1
       axios: 1.4.0
@@ -163,21 +163,8 @@ packages:
     dev: true
     optional: true
 
-  /@reciple/client@7.5.4(discord.js@14.11.0):
-    resolution: {integrity: sha512-BXuFS9TFUoiBErDdWI7fCExA9liOg+9qd9yyuRWhTtPaLut8+NXQRKknDaTgcEW7eNhweEyNZV8tCrognUXn6Q==}
-    peerDependencies:
-      discord.js: ^14.9.0
-    dependencies:
-      discord.js: 14.11.0
-      fallout-utility: 2.5.0
-      kleur: 4.1.5
-      semver: 7.5.1
-      strip-ansi: 6.0.1
-      ts-mixer: 6.0.3
-    dev: false
-
-  /@reciple/client@7.6.0-dev.5(discord.js@14.11.0):
-    resolution: {integrity: sha512-cCFwot2vcanDtF3FaSfUG8R97cN4D2JdN4jIoJT/gatlWplrkMDylQAh/Kcr9GxWlYRkzaFVxRbYA1AAM7UmrQ==}
+  /@reciple/client@7.6.0(discord.js@14.11.0):
+    resolution: {integrity: sha512-Mkn6nV8sT9Ir3EDOkElBqHKQD2FwMA5uozs4T1oNoHsotqQzzNIy+hLBhsdmQdZ+EY9T5R6WfPwH0cW3S3AGXQ==}
     peerDependencies:
       discord.js: ^14.9.0
     dependencies:
@@ -224,13 +211,13 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node@20.1.7:
-    resolution: {integrity: sha512-WCuw/o4GSwDGMoonES8rcvwsig77dGCMbZDrZr2x4ZZiNW4P/gcoZXe/0twgtobcTkmg9TuKflxYL/DuwDyJzg==}
+  /@types/node@20.2.3:
+    resolution: {integrity: sha512-pg9d0yC4rVNWQzX8U7xb4olIOFuuVL9za3bzMT2pu2SU0SNEi66i2qrvhE2qt0HvkhuCaWJu7pLNOt/Pj8BIrw==}
 
   /@types/ws@8.5.4:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
     dependencies:
-      '@types/node': 20.1.7
+      '@types/node': 20.2.3
     dev: false
 
   /@vladfrangu/async_event_emitter@2.2.1:
@@ -550,14 +537,14 @@ packages:
     dependencies:
       is-glob: 4.0.3
 
-  /glob@10.2.4:
-    resolution: {integrity: sha512-fDboBse/sl1oXSLhIp0FcCJgzW9KmhC/q8ULTKC82zc+DL3TL7FNb8qlt5qqXN53MsKEUSIcb+7DLmEygOE5Yw==}
+  /glob@10.2.6:
+    resolution: {integrity: sha512-U/rnDpXJGF414QQQZv5uVsabTVxMSwzS5CH0p3DRCIV6ownl4f7PzGnkGmvlum2wB+9RlJWJZ6ACU1INnBqiPA==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.2.0
-      minimatch: 9.0.0
+      minimatch: 9.0.1
       minipass: 5.0.0
       path-scurry: 1.7.0
     dev: true
@@ -699,8 +686,8 @@ packages:
       brace-expansion: 1.1.11
     dev: true
 
-  /minimatch@9.0.0:
-    resolution: {integrity: sha512-0jJj8AvgKqWN05mrwuqi8QYKx1WmYSUoKSxu5Qhs9prezTz10sxAHGNZe9J9cqIJzta8DWsleh2KaVaLl6Ru2w==}
+  /minimatch@9.0.1:
+    resolution: {integrity: sha512-0jWhJpD/MdhPXwPuiRkCbfYfSKp2qnn2eOc279qI7f+osl/l+prKSrvhg157zSYvx/1nmgn2NqdT6k2Z7zSH9w==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
@@ -831,21 +818,21 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /reciple-dev-commands@1.0.1(@reciple/client@7.5.4):
-    resolution: {integrity: sha512-w5mwk/Tgl7I/IUhexi67/EXHxptgRfrcyf4u93iqpWGmFRIK27lUQhIZWO1BisC5kGLUFdBt7pFBWcLDPK80qg==}
+  /reciple-dev-commands@1.0.2(@reciple/client@7.6.0):
+    resolution: {integrity: sha512-WJ9kzd3faPmCzMMxyyOqJKwWRxEx6B24mwiU4G9LoH6uXkM0mIaZyh/np/LYuPy/im8Vbq3UlZbfwxqCxV8mwg==}
     peerDependencies:
       '@reciple/client': ^7.5.4
     dependencies:
-      '@reciple/client': 7.5.4(discord.js@14.11.0)
+      '@reciple/client': 7.6.0(discord.js@14.11.0)
     dev: false
 
-  /reciple@7.7.0-dev.6(discord.js@14.11.0):
-    resolution: {integrity: sha512-/sglbJgax+oiS7cyTxdbYWYWx+VjkS9kFc3GIvoCbcptn4VJ9SbtwktxX+ds6dKvxJNSW8hIbwc3q/7+Ulodfw==}
+  /reciple@7.7.0(discord.js@14.11.0):
+    resolution: {integrity: sha512-SwgYAMHHw9l+/5oFRhf+LFMamEK5ndH/eh0erYJMhb6tsTkZKWoJ/AuYo3Mq/RGpU4DqGVbKrOmvsmI8BVjJgQ==}
     hasBin: true
     peerDependencies:
       discord.js: ^14.7.1
     dependencies:
-      '@reciple/client': 7.6.0-dev.5(discord.js@14.11.0)
+      '@reciple/client': 7.6.0(discord.js@14.11.0)
       commander: 10.0.1
       discord.js: 14.11.0
       dotenv: 16.0.3
@@ -864,12 +851,12 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: false
 
-  /rimraf@5.0.0:
-    resolution: {integrity: sha512-Jf9llaP+RvaEVS5nPShYFhtXIrb3LRKP281ib3So0KkeZKo2wIKyq0Re7TOSwanasA423PSr6CCIL4bP6T040g==}
+  /rimraf@5.0.1:
+    resolution: {integrity: sha512-OfFZdwtd3lZ+XZzYP/6gTACubwFcHdLRqS9UX3UwpU2dnGQYkPFISRwvM3w9IiB2w7bW5qGo/uAwE4SmXXSKvg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      glob: 10.2.4
+      glob: 10.2.6
     dev: true
 
   /run-parallel@1.2.0:
