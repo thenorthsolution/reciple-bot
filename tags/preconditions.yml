@@ -22,8 +22,8 @@ content: |-
     onStart() { return true; }
 
     // Preconditions
-    contextMenuCommandPrecondition(e) {},
-    messageCommandPrecondition(e) {},
-    slashCommandPrecondition(e) {}
+    contextMenuCommandPrecondition(e) { return true },
+    messageCommandPrecondition(e) { return true },
+    slashCommandPrecondition(e) { return true }
   }
   ```
