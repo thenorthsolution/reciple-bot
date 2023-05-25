@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@falloutstudios/sourcebin.js':
-    specifier: ^1.0.1
-    version: 1.0.1
+    specifier: ^2.0.2
+    version: 2.0.2
   '@reciple/client':
     specifier: ^7.6.0
     version: 7.6.0(discord.js@14.11.0)
@@ -113,8 +113,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@falloutstudios/sourcebin.js@1.0.1:
-    resolution: {integrity: sha512-Vp6MmYMVlGg1sWp57UFoRES2/Eb7DwN+P6FqIOULt2/HFyMbCqEO28HiY927efA2eavWcFSEowfQEEXMEx6U4w==}
+  /@falloutstudios/sourcebin.js@2.0.2:
+    resolution: {integrity: sha512-eyen+cQGPXtD9uVo9/9MUfvtVozPeTAJhdqX+2ghH/1eHXS1JZMdxEUl1TL1GU3uNajLhgERbCxGKXWZYHA9Zg==}
     dependencies:
       '@discordjs/collection': 1.5.1
       axios: 1.4.0

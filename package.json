@@ -11,7 +11,7 @@
     "dev": "pnpm exec nodemon --watch src --ext ts,mts,cts --exec \"pnpm run build:test\" --signal SIGHUP"
   },
   "dependencies": {
-    "@falloutstudios/sourcebin.js": "^1.0.1",
+    "@falloutstudios/sourcebin.js": "^2.0.2",
     "@reciple/client": "^7.6.0",
     "axios": "^1.4.0",
     "discord.js": "^14.11.0",
