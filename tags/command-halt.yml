@@ -1,4 +1,3 @@
-id: command-halt
 name: Command halt
 keywords: ['error', 'cooldown', 'error handling', 'cooldown message']
 pinned: true

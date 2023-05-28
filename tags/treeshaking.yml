@@ -1,0 +1,11 @@
+name: Tree shaking
+keywords: ['Dead code elimination', 'Treeshaking', 'import']
+content: |-
+  Tree shaking is a term commonly used within a JavaScript context to describe the removal of dead code.
+
+  **Only import the required objects for your code**
+  ```diff
+  - import * as Everything from 'somewhere';
+  + import { Something } from 'somewhere';
+  ```
+  • [Read more](<https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking>)

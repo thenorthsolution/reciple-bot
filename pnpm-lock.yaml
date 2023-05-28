@@ -2,11 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@falloutstudios/sourcebin.js':
-    specifier: ^2.0.2
-    version: 2.0.2
-  '@reciple/client':
-    specifier: ^7.6.0
-    version: 7.6.0(discord.js@14.11.0)
+    specifier: ^2.0.3
+    version: 2.0.3
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -17,28 +14,28 @@ dependencies:
     specifier: ^0.3.0
     version: 0.3.0
   fallout-utility:
-    specifier: ^2.5.0
-    version: 2.5.0
+    specifier: ^2.5.1
+    version: 2.5.1
   ms:
     specifier: ^2.1.3
     version: 2.1.3
   reciple:
-    specifier: 7.7.0
-    version: 7.7.0(discord.js@14.11.0)
+    specifier: 7.7.3
+    version: 7.7.3(discord.js@14.11.0)
   reciple-dev-commands:
     specifier: ^1.0.2
-    version: 1.0.2(@reciple/client@7.6.0)
+    version: 1.0.2(@reciple/client@7.6.1)
   yaml:
-    specifier: ^2.2.2
-    version: 2.2.2
+    specifier: ^2.3.1
+    version: 2.3.1
 
 devDependencies:
   '@types/ms':
     specifier: ^0.7.31
     version: 0.7.31
   '@types/node':
-    specifier: ^20.2.3
-    version: 20.2.3
+    specifier: ^20.2.5
+    version: 20.2.5
   nodemon:
     specifier: ^2.0.22
     version: 2.0.22
@@ -113,12 +110,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@falloutstudios/sourcebin.js@2.0.2:
-    resolution: {integrity: sha512-eyen+cQGPXtD9uVo9/9MUfvtVozPeTAJhdqX+2ghH/1eHXS1JZMdxEUl1TL1GU3uNajLhgERbCxGKXWZYHA9Zg==}
+  /@falloutstudios/sourcebin.js@2.0.3:
+    resolution: {integrity: sha512-JYeMz0RzNOGwZ06YyC0F6PHeuU+AvQQk+BmuviGYgnh8vrQuy36jewyK1Dp/P3d8WMI0SXn+xiSU6zC6pDc+XQ==}
     dependencies:
       '@discordjs/collection': 1.5.1
       axios: 1.4.0
-      fallout-utility: 2.5.0
+      fallout-utility: 2.5.1
     transitivePeerDependencies:
       - debug
     dev: false
@@ -163,18 +160,28 @@ packages:
     dev: true
     optional: true
 
-  /@reciple/client@7.6.0(discord.js@14.11.0):
-    resolution: {integrity: sha512-Mkn6nV8sT9Ir3EDOkElBqHKQD2FwMA5uozs4T1oNoHsotqQzzNIy+hLBhsdmQdZ+EY9T5R6WfPwH0cW3S3AGXQ==}
+  /@reciple/client@7.6.1(discord.js@14.11.0):
+    resolution: {integrity: sha512-IWQSn/fVSG52Ed80+WncCyRjOQoc1TIDFHCOKklW/zdn+ZA5HU1JovR3SXeuDvh4n0UzI9hxi8z9tUeCakJzNg==}
     peerDependencies:
       discord.js: ^14.9.0
     dependencies:
       '@sapphire/shapeshift': 3.9.0
       discord.js: 14.11.0
-      fallout-utility: 2.5.0
+      fallout-utility: 2.5.1
       kleur: 4.1.5
       semver: 7.5.1
       strip-ansi: 6.0.1
       ts-mixer: 6.0.3
+    dev: false
+
+  /@reciple/update-checker@7.0.2:
+    resolution: {integrity: sha512-vGhMk1LWk4WLpa5BfI6FGkhXI87zFQsJ6TT5gyj3HWtTzcWY94aFGTnoNqunozp3TRiChveph0QL9WuDzPjSRg==}
+    dependencies:
+      '@types/semver': 7.5.0
+      axios: 1.4.0
+      semver: 7.5.1
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /@sapphire/async-queue@1.5.0:
@@ -211,13 +218,17 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
 
-  /@types/node@20.2.3:
-    resolution: {integrity: sha512-pg9d0yC4rVNWQzX8U7xb4olIOFuuVL9za3bzMT2pu2SU0SNEi66i2qrvhE2qt0HvkhuCaWJu7pLNOt/Pj8BIrw==}
+  /@types/node@20.2.5:
+    resolution: {integrity: sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==}
+
+  /@types/semver@7.5.0:
+    resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
+    dev: false
 
   /@types/ws@8.5.4:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
     dependencies:
-      '@types/node': 20.2.3
+      '@types/node': 20.2.5
     dev: false
 
   /@vladfrangu/async_event_emitter@2.2.1:
@@ -446,8 +457,8 @@ packages:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
 
-  /fallout-utility@2.5.0:
-    resolution: {integrity: sha512-pjx5TgTFhgPxw+qwg5/to6OQ2n44xlE/KX6eLJexa+YUJ1r+xpIxLK3XPm1s3Alih9DAXQnH+pf8yrmXjsl5kA==}
+  /fallout-utility@2.5.1:
+    resolution: {integrity: sha512-3w3aHMq6hk/XUSBSmex3M3A5vqebV/Le14fjnOUOFRMk7YXgeZkzRPj7w68StB4DsSd3InK2AYAF6+TFViBI5Q==}
     dependencies:
       ansi-regex: 5.0.1
       kleur: 4.1.5
@@ -818,32 +829,35 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /reciple-dev-commands@1.0.2(@reciple/client@7.6.0):
+  /reciple-dev-commands@1.0.2(@reciple/client@7.6.1):
     resolution: {integrity: sha512-WJ9kzd3faPmCzMMxyyOqJKwWRxEx6B24mwiU4G9LoH6uXkM0mIaZyh/np/LYuPy/im8Vbq3UlZbfwxqCxV8mwg==}
     peerDependencies:
       '@reciple/client': ^7.5.4
     dependencies:
-      '@reciple/client': 7.6.0(discord.js@14.11.0)
+      '@reciple/client': 7.6.1(discord.js@14.11.0)
     dev: false
 
-  /reciple@7.7.0(discord.js@14.11.0):
-    resolution: {integrity: sha512-SwgYAMHHw9l+/5oFRhf+LFMamEK5ndH/eh0erYJMhb6tsTkZKWoJ/AuYo3Mq/RGpU4DqGVbKrOmvsmI8BVjJgQ==}
+  /reciple@7.7.3(discord.js@14.11.0):
+    resolution: {integrity: sha512-/8OOPbPq281+TqQEXpyGqOLsNbo7v0cZhpjszOexQZ2+rsIbwzrtyeySxxcB1bamx+gzgbshUHq+L2Q8lXSbZg==}
     hasBin: true
     peerDependencies:
       discord.js: ^14.7.1
     dependencies:
-      '@reciple/client': 7.6.0(discord.js@14.11.0)
+      '@reciple/client': 7.6.1(discord.js@14.11.0)
+      '@reciple/update-checker': 7.0.2
       commander: 10.0.1
       discord.js: 14.11.0
       dotenv: 16.0.3
-      fallout-utility: 2.5.0
+      fallout-utility: 2.5.1
       globby: 13.1.4
       kleur: 4.1.5
       lodash.merge: 4.6.2
       micromatch: 4.0.5
       prompts: 2.4.2
       semver: 7.5.1
-      yaml: 2.2.2
+      yaml: 2.3.1
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /reusify@1.0.4:
@@ -1092,7 +1106,7 @@ packages:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
     dev: false
 
-  /yaml@2.2.2:
-    resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
+  /yaml@2.3.1:
+    resolution: {integrity: sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==}
     engines: {node: '>= 14'}
     dev: false

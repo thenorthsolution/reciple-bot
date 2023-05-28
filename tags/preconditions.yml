@@ -1,4 +1,3 @@
-id: preconditions
 name: Preconditions
 content: |-
   • Preconditions makes sure the command is allowed to be executed

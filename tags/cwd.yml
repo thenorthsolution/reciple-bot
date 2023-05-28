@@ -1,4 +1,3 @@
-id: cwd
 name: Current Working Directory
 keywords: ['cwd', 'process.cwd', 'cli.cwd']
 content: |-

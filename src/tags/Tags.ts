@@ -128,10 +128,14 @@ export class Tags extends BaseModule {
         this.tags.clear();
 
         for (const file of files) {
-            const data: Tag = yml.parse(readFileSync(file, 'utf-8'));
+            const data: Omit<Tag, 'id'> & { id?: string; } = yml.parse(readFileSync(file, 'utf-8'));
 
-            this.tags.set(data.id, data);
-            tags.push(data);
+            if (!data.id) data.id = path.parse(file).name;
+
+            console.log(data);
+
+            this.tags.set(data.id, data as Tag);
+            tags.push(data as Tag);
         }
 
         return tags;

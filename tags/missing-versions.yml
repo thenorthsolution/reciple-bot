@@ -1,4 +1,3 @@
-id: missing-versions
 name: Missing required versions
 keywords: ['failed to resolve module', 'versions', 'export default', 'NoSupportedVersion']
 pinned: true

@@ -1,4 +1,3 @@
-id: module-onstart
 name: Module onStart
 pinned: true
 keywords: ['Returned false', 'Failed to load module']
