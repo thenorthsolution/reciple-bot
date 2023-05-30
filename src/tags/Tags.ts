@@ -1,4 +1,4 @@
-import { MessageCommandBuilder, RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
+import { MessageCommandBuilder, RecipleClient, SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -19,7 +19,7 @@ export class Tags extends BaseModule {
     public tags: Collection<string, Tag> = new Collection();
     public tagsDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '../../tags');
 
-    public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+    public async onStart(): Promise<boolean> {
         this.commands = [
             Utils.commonSlashCommandOptions(new SlashCommandBuilder()
                 .setName('tag')
@@ -68,7 +68,7 @@ export class Tags extends BaseModule {
         return true;
     }
 
-    public async onLoad(client: RecipleClient<true>, module: RecipleModule): Promise<void> {
+    public async onLoad(client: RecipleClient<true>): Promise<void> {
         this.parseTagsDir();
 
         client.on('interactionCreate', async interaction => {
@@ -131,8 +131,6 @@ export class Tags extends BaseModule {
             const data: Omit<Tag, 'id'> & { id?: string; } = yml.parse(readFileSync(file, 'utf-8'));
 
             if (!data.id) data.id = path.parse(file).name;
-
-            console.log(data);
 
             this.tags.set(data.id, data as Tag);
             tags.push(data as Tag);

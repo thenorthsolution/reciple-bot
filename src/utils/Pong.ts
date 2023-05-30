@@ -1,10 +1,10 @@
-import { RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
+import { RecipleClient, SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { codeBlock } from 'discord.js';
 import ms from 'ms';
 
 export class Pong extends BaseModule {
-    public async onStart(client: RecipleClient, module: RecipleModule): Promise<boolean> {
+    public async onStart(client: RecipleClient): Promise<boolean> {
         this.commands = [
             new SlashCommandBuilder()
                 .setName('ping')

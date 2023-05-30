@@ -1,9 +1,9 @@
-import { RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
+import { SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { ButtonBuilder, ButtonStyle, ComponentType } from 'discord.js';
 
 export class Invite extends BaseModule {
-    public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+    public async onStart(): Promise<boolean> {
         this.commands = [
             new SlashCommandBuilder()
                 .setName('invite')

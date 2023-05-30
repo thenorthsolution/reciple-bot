@@ -1,11 +1,11 @@
-import { ContextMenuCommandBuilder, RecipleClient, RecipleModule } from 'reciple';
+import { ContextMenuCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import { Message } from 'discord.js';
 import { create } from '@falloutstudios/sourcebin.js';
 import { trimChars } from 'fallout-utility';
 
 export class SourceBin extends BaseModule {
-    public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+    public async onStart(): Promise<boolean> {
         this.commands = [
             new ContextMenuCommandBuilder()
                 .setName('Generate Sourcebin')

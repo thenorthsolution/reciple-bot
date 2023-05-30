@@ -1,13 +1,13 @@
 import { Collection, SlashCommandSubcommandBuilder } from 'discord.js';
 import { BaseModule } from '../BaseModule.js';
-import { RecipleClient, RecipleModule, SlashCommandBuilder } from 'reciple';
+import { RecipleClient, SlashCommandBuilder } from 'reciple';
 import DocsParser from './DocsParser.js';
 import { DocElement } from 'discord.js-docs';
 import { limitString } from 'fallout-utility';
 import Utils from '../utils/Utils.js';
 
 export class Docs extends BaseModule {
-    public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+    public async onStart(): Promise<boolean> {
         this.commands = [
             new SlashCommandBuilder()
                 .setName('docs')
@@ -57,7 +57,7 @@ export class Docs extends BaseModule {
         return true;
     }
 
-    public async onLoad(client: RecipleClient<true>, module: RecipleModule): Promise<void> {
+    public async onLoad(client: RecipleClient<true>): Promise<void> {
         client.on('interactionCreate', async interaction => {
             if (!interaction.isAutocomplete()) return;
 

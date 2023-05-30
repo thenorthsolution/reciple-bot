@@ -1,4 +1,4 @@
-import { MessageCommandBuilder, RecipleClient, RecipleModule, recursiveDefaults } from 'reciple';
+import { MessageCommandBuilder, RecipleClient, recursiveDefaults } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
 import Doc, { DocElement, DocType } from 'discord.js-docs';
 
@@ -7,7 +7,7 @@ export class DocsParser extends BaseModule {
     public clientDocs!: Doc.default;
     public recipleDocs!: Doc.default;
 
-    public async onStart(client: RecipleClient<false>, module: RecipleModule): Promise<boolean> {
+    public async onStart(client: RecipleClient<false>): Promise<boolean> {
         this.client = client;
 
         this.devCommands = [
@@ -80,7 +80,7 @@ export class DocsParser extends BaseModule {
         this.recipleDocs = await Doc.fetch(this.createRawDocJsonURL('reciple', 'main'));
     }
 
-    public async onLoad(client: RecipleClient<true>, module: RecipleModule): Promise<void> {
+    public async onLoad(): Promise<void> {
         await this.fetchDocsData();
     }
 }
