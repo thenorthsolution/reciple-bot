@@ -3,12 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm exec rimraf ./modules && pnpm exec tsc",
-    "start": "pnpm exec reciple",
-    "test": "pnpm exec reciple -c ./reciple.test.yml",
-    "build:start": "pnpm run build && pnpm run start",
-    "build:test": "pnpm run build && pnpm run test",
-    "dev": "pnpm exec nodemon --watch src --ext ts,mts,cts --exec \"pnpm run build:test\" --signal SIGHUP"
+    "build": "rimraf ./modules && tsc",
+    "start": "reciple",
+    "test": "reciple -c ./reciple.test.yml",
+    "build:start": "npm run build && reciple",
+    "build:test": "npm run build && reciple -c ./reciple.test.yml",
+    "dev": "nodemon --watch src --ext ts,mts,cts --exec \"npm run build && reciple -c ./reciple.test.yml\" --signal SIGHUP"
   },
   "dependencies": {
     "axios": "^1.4.0",
