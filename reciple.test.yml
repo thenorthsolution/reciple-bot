@@ -10,3 +10,5 @@ applicationCommandRegister:
 
 logger:
   debugmode: true
+
+checkForUpdates: false

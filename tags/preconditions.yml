@@ -1,16 +1,15 @@
 name: Preconditions
 content: |-
-  • Preconditions makes sure the command is allowed to be executed
-  • Preconditions returns `boolean|Promise<boolean>`
+  - Preconditions makes sure the command is allowed to be executed
+  - Preconditions returns `boolean|Promise<boolean>`
 
-  **These are the two types of precondition**
-    • Global command precondition
-    • Module command precondition
+  - **These are the two types of precondition**
+    - Global command precondition
+    - Module command precondition
 
-  **Global precondition**
-  Global preconditions are assigned to the [`CommandManager`](<https://reciple.js.org/docs/client/main/classes/CommandManager>).
-    • Use [`.setGlobalPrecondition()`](<https://reciple.js.org/docs/client/main/classes/CommandManager#setGlobalPrecondition>) to set global preconditions
-    • Use [`.getGlobalPrecondition()`](<https://reciple.js.org/docs/client/main/classes/CommandManager#getGlobalPrecondition>) to get global preconditions
+  - **Global precondition** Global preconditions are assigned to the [`CommandManager`](<https://reciple.js.org/docs/client/main/classes:CommandManager>).
+    - Use [`.setGlobalPrecondition()`](<https://reciple.js.org/docs/client/main/classes:CommandManager#setglobalprecondition>) to set global preconditions
+    - Use [`.getGlobalPrecondition()`](<https://reciple.js.org/docs/client/main/classes:CommandManager#getglobalprecondition>) to get global preconditions
 
   **Module preconditions**
   Module preconditions adds preconditions to that module's commands.

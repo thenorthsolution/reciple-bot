@@ -13,4 +13,4 @@ content: |-
   }
   ```
 
-  `onStart` can also return a [`Promise`](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>) boolean.
+  `onStart` can also return a [`Promise`](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>) that resolved to a boolean.

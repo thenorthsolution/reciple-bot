@@ -2,9 +2,9 @@ name: Reciple logger
 keywords: ['logger', 'console log', 'clone logger', 'create logger']
 pinned: true
 content: |-
-  • You can access the logger object via [`RecipleClient#logger`](<https://reciple.js.org/docs/client/main/classes/RecipleClient#logger>)
-  • To clone logger you can use `client.logger.clone({ name: 'MyLogger' })`
-  • Client logger can be undefined if disabled in reciple.yml
+  - You can access the logger object via [`RecipleClient#logger`](<https://reciple.js.org/docs/client/main/classes:RecipleClient#logger>)
+  - To clone logger you can use `client.logger.clone({ name: 'MyLogger' })`
+  - Client logger can be undefined if disabled in reciple.yml
 
   ```js
   // client logger

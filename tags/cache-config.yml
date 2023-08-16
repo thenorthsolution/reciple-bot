@@ -1,9 +1,9 @@
 name: Cache config
 keywords: ['custom cache', 'limit cache', 'no cache']
 content: |-
-  • Create a js file that contains your cache config
-  • Use the `--cache-config <file>` flag
-  • [Learn more about sweepers](<https://discordjs.guide/miscellaneous/cache-customization.html#limiting-caches>)
+  - Create a js file that contains your cache config
+  - Use the `--cache-config <file>` flag
+  - [Learn more about sweepers](<https://discordjs.guide/miscellaneous/cache-customization.html#limiting-caches>)
 
   ```js
   // caching.js
