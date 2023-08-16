@@ -12,6 +12,7 @@ export class Uwuify extends BaseModule {
 
         this.commands = [
             new ContextMenuCommandBuilder()
+                .setName('Uwuify')
                 .setType('Message')
                 .setDMPermission(true)
                 .setExecute(async ({ interaction }) => {
