@@ -1,8 +1,8 @@
-import { ContextMenuCommandBuilder } from 'reciple';
 import { BaseMessageOptions, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from 'discord.js';
+import { ContextMenuCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
-import Uwuifier from 'uwuifier';
 import Utility from '../Utils/Utility.js';
+import Uwuifier from 'uwuifier';
 
 export class Uwuify extends BaseModule {
     public formatter!: Uwuifier.default;
