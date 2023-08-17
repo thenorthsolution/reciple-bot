@@ -1,11 +1,12 @@
 import { ContextMenuCommandBuilder } from 'reciple';
-import { ButtonBuilder, ButtonStyle, ComponentType } from 'discord.js';
+import { BaseMessageOptions, ButtonBuilder, ButtonStyle, ComponentType, EmbedBuilder } from 'discord.js';
 import { BaseModule } from '../BaseModule.js';
 import Uwuifier from 'uwuifier';
 import Utility from '../Utils/Utility.js';
 
 export class Uwuify extends BaseModule {
     public formatter!: Uwuifier.default;
+    public footerPrefix: string = '​​​​​';
 
     public async onStart(): Promise<boolean> {
         this.formatter = new (await import(('uwuifier'))).default();
@@ -19,26 +20,53 @@ export class Uwuify extends BaseModule {
                     if (!interaction.isMessageContextMenuCommand()) return;
 
                     const message = interaction.targetMessage;
+                    const channel = interaction.channel && !interaction.channel.isDMBased() ? interaction.channel : null;
+                    const response: BaseMessageOptions = {
+                        content: message.content ? this.formatter.uwuifySentence(message.content) : undefined,
+                        files: message.attachments.toJSON(),
+                        embeds: message.embeds,
+                        allowedMentions: {
+                            repliedUser: false,
+                            parse: []
+                        }
+                    };
 
-                    if (!message.content) {
-                        await interaction.reply({
-                            content: Utility.createErrorMessage('This message doesn\'t have a text content'),
-                            ephemeral: true
-                        });
-
+                    if (!channel) {
+                        await interaction.reply(response);
                         return;
                     }
 
-                    await interaction.reply({
-                        content: this.formatter.uwuifySentence(message.content),
+                    await interaction.deferReply({ ephemeral: true });
+
+                    const parentChannel = channel.isThread() ? channel.parent : channel;
+                    const webhook = (await parentChannel?.fetchWebhooks().catch(() => null))?.first() ?? await parentChannel?.createWebhook({ name: 'Uwuifier' });
+
+                    if (!webhook) {
+                        await interaction.editReply(Utility.createErrorMessage('Unable to send message'));
+                        return;
+                    }
+
+                    const reply = await webhook.send({
+                        ...response,
+                        username: message.member?.displayName ?? message.author.displayName,
+                        avatarURL: message.member?.displayAvatarURL() ?? message.author.displayAvatarURL(),
+                        embeds: [
+                            ...(response.embeds ?? []).filter(e => !EmbedBuilder.from(e).data.footer?.text.startsWith(this.footerPrefix)),
+                            new EmbedBuilder()
+                                .setDescription(`**[View Original Message](${message.url})**`)
+                                .setFooter({ text: `${this.footerPrefix}Sent by ${interaction.user.displayName}` })
+                        ]
+                    });
+
+                    await interaction.editReply({
                         components: [
                             {
                                 type: ComponentType.ActionRow,
                                 components: [
                                     new ButtonBuilder()
+                                        .setLabel(`View Message`)
+                                        .setURL(reply.url)
                                         .setStyle(ButtonStyle.Link)
-                                        .setURL(message.url)
-                                        .setLabel('View Original')
                                 ]
                             }
                         ]
