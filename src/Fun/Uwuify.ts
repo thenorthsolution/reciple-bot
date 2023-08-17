@@ -32,7 +32,20 @@ export class Uwuify extends BaseModule {
                     };
 
                     if (!channel) {
-                        await interaction.reply(response);
+                        await interaction.reply({
+                            ...response,
+                            components: [
+                                {
+                                    type: ComponentType.ActionRow,
+                                    components: [
+                                        new ButtonBuilder()
+                                            .setLabel(`View Original Message`)
+                                            .setURL(message.url)
+                                            .setStyle(ButtonStyle.Link)
+                                    ]
+                                }
+                            ]
+                        });
                         return;
                     }
 
@@ -54,7 +67,7 @@ export class Uwuify extends BaseModule {
                             ...(response.embeds ?? []).filter(e => !EmbedBuilder.from(e).data.footer?.text.startsWith(this.footerPrefix)),
                             new EmbedBuilder()
                                 .setDescription(`**[View Original Message](${message.url})**`)
-                                .setFooter({ text: `${this.footerPrefix}Sent by ${interaction.user.displayName}` })
+                                .setFooter({ text: `${this.footerPrefix}Requested by ${interaction.user.displayName}` })
                         ]
                     });
 
