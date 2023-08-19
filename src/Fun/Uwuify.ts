@@ -27,15 +27,15 @@ export class Uwuify extends BaseModule {
                     await interaction.deferReply({ ephemeral: true })
 
                     const messageData: ParseMessageURLData = Utility.isSnowflake(messageResolvable) ? { channelId: interaction.channelId, messageId: messageResolvable, guildId: interaction.guildId } : parseMessageURL(messageResolvable);
-                    const channel = interaction.channel;
+                    const channel = await resolveFromCachedCollection(messageData.channelId, client.channels);
 
-                    if (!channel || !channel.isTextBased()) {
+                    if (!channel || !channel.isTextBased() || !interaction.channel) {
                         await interaction.editReply(Utility.createErrorMessage('Unable to send message to this channel'));
                         return;
                     }
 
                     const message = await resolveFromCachedCollection(messageData.messageId, channel.messages);
-                    const reply = await this.sendUwuifiedMessage(message, channel, { requestedBy: interaction.user });
+                    const reply = await this.sendUwuifiedMessage(message, interaction.channel, { requestedBy: interaction.user });
 
                     await interaction.editReply(reply ? Utility.createSuccessMessage('Message uwuified') : Utility.createErrorMessage('Unable to send message to this channel'));
                 }),
