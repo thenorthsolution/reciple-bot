@@ -106,7 +106,7 @@ export class Uwuify extends BaseModule {
                 ...(requestedBy
                     ? [
                         new EmbedBuilder()
-                            .setAuthor({ name: requestedBy.displayName, iconURL: requestedBy.displayAvatarURL() })
+                            .setAuthor({ name:`Uwuified by ${requestedBy.displayName}`, iconURL: requestedBy.displayAvatarURL() })
                     ] : []
                 )
             ],
