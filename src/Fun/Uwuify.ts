@@ -7,7 +7,7 @@ import { ParseMessageURLData, parseMessageURL, resolveFromCachedCollection } fro
 
 export class Uwuify extends BaseModule {
     public formatter!: Uwuifier.default;
-    public footerPrefix: string = '​​​​​';
+    public embedPrefix: string = '​​​​​';
 
     public async onStart(): Promise<boolean> {
         this.formatter = new (await import(('uwuifier'))).default();
@@ -102,11 +102,11 @@ export class Uwuify extends BaseModule {
             username: message.member?.displayName ?? message.author.displayName,
             avatarURL: message.member?.displayAvatarURL() ?? message.author.displayAvatarURL(),
             embeds: [
-                ...(response.embeds ?? []).filter(e => !EmbedBuilder.from(e).data.author?.name.startsWith(this.footerPrefix)),
+                ...(response.embeds ?? []).filter(e => !EmbedBuilder.from(e).data.author?.name.startsWith(this.embedPrefix)),
                 ...(requestedBy
                     ? [
                         new EmbedBuilder()
-                            .setAuthor({ name:`Uwuified by ${requestedBy.displayName}`, iconURL: requestedBy.displayAvatarURL() })
+                            .setAuthor({ name:`${this.embedPrefix}Uwuified by ${requestedBy.displayName}`, iconURL: requestedBy.displayAvatarURL() })
                     ] : []
                 )
             ],
