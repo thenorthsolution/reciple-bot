@@ -16,7 +16,7 @@ export class Uwuify extends BaseModule {
                 .setName('Uwuify')
                 .setType('Message')
                 .setDMPermission(true)
-                .setExecute(async ({ interaction }) => {
+                .setExecute(async ({ interaction, client }) => {
                     if (!interaction.isMessageContextMenuCommand()) return;
 
                     const message = interaction.targetMessage;
@@ -52,7 +52,7 @@ export class Uwuify extends BaseModule {
                     await interaction.deferReply({ ephemeral: true });
 
                     const parentChannel = channel.isThread() ? channel.parent : channel;
-                    const webhook = (await parentChannel?.fetchWebhooks().catch(() => null))?.first() ?? await parentChannel?.createWebhook({ name: 'Uwuifier' });
+                    const webhook = (await parentChannel?.fetchWebhooks().catch(() => null))?.find(w => w.owner?.id === client.user?.id) ?? await parentChannel?.createWebhook({ name: 'Uwuifier' });
 
                     if (!webhook) {
                         await interaction.editReply(Utility.createErrorMessage('Unable to send message'));
