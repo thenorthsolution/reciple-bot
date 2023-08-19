@@ -11,6 +11,7 @@
     "dev": "nodemon --watch src --ext ts,mts,cts --exec \"npm run build && reciple -c ./reciple.test.yml\" --signal SIGHUP"
   },
   "dependencies": {
+    "@reciple/utils": "^7.1.2",
     "axios": "^1.4.0",
     "discord.js": "^14.12.1",
     "fallout-utility": "^2.7.1",

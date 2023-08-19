@@ -1,6 +1,6 @@
 import { AnySlashCommandBuilder, SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
-import { SlashCommandSubcommandBuilder, inlineCode } from 'discord.js';
+import { SlashCommandSubcommandBuilder, Snowflake, inlineCode } from 'discord.js';
 import DevCommands from './DevCommands.js';
 
 export class Utils extends BaseModule {
@@ -43,6 +43,19 @@ export class Utils extends BaseModule {
                 .setName('hide')
                 .setDescription('Hide command response')
             ) as T;
+    }
+
+    public isSnowflake(id: unknown): id is Snowflake {
+        let isBigInt: boolean;
+
+        try {
+            BigInt(id as string);
+            isBigInt = true;
+        } catch(err) {
+            isBigInt = false;
+        }
+
+        return typeof id === 'string' && isBigInt;
     }
 }
 
