@@ -107,6 +107,7 @@ export class Uwuify extends BaseModule {
                     ? [
                         new EmbedBuilder()
                             .setAuthor({ name:`${this.embedPrefix}Uwuified by ${requestedBy.displayName}`, iconURL: requestedBy.displayAvatarURL() })
+                            .setColor('DarkButNotBlack')
                     ] : []
                 )
             ],
