@@ -27,7 +27,9 @@ export class Uwuify extends BaseModule {
                     await interaction.deferReply({ ephemeral: true })
 
                     const messageData: ParseMessageURLData = Utility.isSnowflake(messageResolvable) ? { channelId: interaction.channelId, messageId: messageResolvable, guildId: interaction.guildId } : parseMessageURL(messageResolvable);
-                    const channel = await resolveFromCachedCollection(messageData.channelId, client.channels);
+                    const channel = interaction.channel?.id === messageData.channelId
+                        ? interaction.channel
+                        : await resolveFromCachedCollection(messageData.channelId, client.channels).catch(() => null);
 
                     if (!channel || !channel.isTextBased() || !interaction.channel) {
                         await interaction.editReply(Utility.createErrorMessage('Unable to send message to this channel'));
@@ -49,6 +51,11 @@ export class Uwuify extends BaseModule {
                     const message = interaction.targetMessage;
                     const channel = interaction.channel;
 
+                    if (!interaction.inCachedGuild()) {
+                        await interaction.reply(this.uwuifyMessageOptions(message));
+                        return;
+                    }
+
                     await interaction.deferReply({ ephemeral: true })
 
                     if (!channel) {
@@ -66,32 +73,9 @@ export class Uwuify extends BaseModule {
     }
 
     public async sendUwuifiedMessage(message: Message, channel: TextBasedChannel, { useWebhook, requestedBy }: { useWebhook?: boolean; requestedBy?: User|GuildMember; } = {}): Promise<Message|null> {
-        const response: BaseMessageOptions = {
-            content: message.content ? this.formatter.uwuifySentence(message.content) : undefined,
-            files: message.attachments.toJSON(),
-            embeds: message.embeds,
-            allowedMentions: {
-                repliedUser: false,
-                parse: []
-            }
-        };
+        const response: BaseMessageOptions = this.uwuifyMessageOptions(message);
 
-        if (channel.isDMBased() || useWebhook === false) {
-            return channel.send({
-                ...response,
-                components: [
-                    {
-                        type: ComponentType.ActionRow,
-                        components: [
-                            new ButtonBuilder()
-                                .setLabel(`View Original Message`)
-                                .setURL(message.url)
-                                .setStyle(ButtonStyle.Link)
-                        ]
-                    }
-                ]
-            });
-        }
+        if (channel.isDMBased() || useWebhook === false) return channel.send(response);
 
         const parentChannel = channel.isThread() ? channel.parent : channel;
         const webhook = (await parentChannel?.fetchWebhooks().catch(() => null))?.find(w => w.owner?.id === channel.client.user.id) ?? await parentChannel?.createWebhook({ name: 'Uwuifier' });
@@ -110,7 +94,19 @@ export class Uwuify extends BaseModule {
                             .setColor('DarkButNotBlack')
                     ] : []
                 )
-            ],
+            ]
+        });
+    }
+
+    public uwuifyMessageOptions(message: Message): BaseMessageOptions {
+        return {
+            content: message.content ? this.formatter.uwuifySentence(message.content) : undefined,
+            embeds: (message.embeds ?? []).filter(e => !EmbedBuilder.from(e).data.author?.name.startsWith(this.embedPrefix)),
+            files: message.attachments.toJSON(),
+            allowedMentions: {
+                repliedUser: false,
+                parse: []
+            },
             components: [
                 {
                     type: ComponentType.ActionRow,
@@ -122,7 +118,7 @@ export class Uwuify extends BaseModule {
                     ]
                 }
             ]
-        });
+        };
     }
 }
 
