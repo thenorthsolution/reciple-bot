@@ -22,14 +22,20 @@ export class Uwuify extends BaseModule {
                     .setRequired(true)
                 )
                 .setExecute(async ({ interaction, client }) => {
+                    if (!interaction.inCachedGuild()) {
+                        await interaction.reply({
+                            content: Utility.createErrorMessage('Bot doesn\'t have permissions to send in this channel'),
+                            ephemeral: true
+                        })
+                        return;
+                    }
+
                     const messageResolvable = interaction.options.getString('message', true);
 
-                    await interaction.deferReply({ ephemeral: true })
+                    await interaction.deferReply({ ephemeral: true });
 
                     const messageData: ParseMessageURLData = Utility.isSnowflake(messageResolvable) ? { channelId: interaction.channelId, messageId: messageResolvable, guildId: interaction.guildId } : parseMessageURL(messageResolvable);
-                    const channel = interaction.channel?.id === messageData.channelId
-                        ? interaction.channel
-                        : await resolveFromCachedCollection(messageData.channelId, client.channels).catch(() => null);
+                    const channel = await resolveFromCachedCollection(messageData.channelId, client.channels).catch(() => null);
 
                     if (!channel || !channel.isTextBased() || !interaction.channel) {
                         await interaction.editReply(Utility.createErrorMessage('Unable to send message to this channel'));
