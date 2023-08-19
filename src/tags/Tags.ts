@@ -52,7 +52,7 @@ export class Tags extends BaseModule {
                     const target = interaction.options.getUser('target');
 
                     const tag = this.search(query)[0];
-                    const targetMessage = target && !hidden ? `*Tag suggestion for ${target}*\n` : '';
+                    const targetMessage = target && !hidden ? `*Tag suggestion for ${target}*` : '';
 
                     if (!tag) {
                         await interaction.reply({ content: Utility.createErrorMessage('No tag found'), ephemeral: true });
@@ -152,7 +152,7 @@ export class Tags extends BaseModule {
             if (!suggestedTag) return;
 
             await message.reply({
-                content: `*Tag suggestion for ${message.author}*\n\n${suggestedTag.content}`,
+                content: `*Tag suggestion for ${message.author}*\n${suggestedTag.content}`,
                 components: [
                     {
                         type: ComponentType.ActionRow,
