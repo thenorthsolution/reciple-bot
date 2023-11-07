@@ -50,7 +50,7 @@ export class DocsManager extends BaseModule {
                         return;
                     }
 
-                    await interaction.deferReply({ ephemeral: interaction.options.getBoolean('hidden') ?? false });
+                    await interaction.deferReply({ ephemeral: interaction.options.getBoolean('hide') ?? false });
 
                     const data = await parser.resolveDocs(tag);
                     const element = data.find(elementId);
