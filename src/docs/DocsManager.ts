@@ -22,9 +22,11 @@ export class DocsManager extends BaseModule {
     public async onStart(): Promise<boolean> {
         this.packages.set('reciple', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'reciple', npm: 'reciple' }));
         this.packages.set('client', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'client', npm: '@reciple/client' }));
+        this.packages.set('core', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'core', npm: '@reciple/core' }));
         this.packages.set('utils', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'utils', npm: '@reciple/utils' }));
         this.packages.set('npm-loader', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'npm-loader', npm: '@reciple/npm-loader' }));
         this.packages.set('update-checker', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'update-checker', npm: '@reciple/update-checker' }));
+        this.packages.set('create-reciple', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'create-reciple', npm: 'create-reciple' }));
         this.packages.set('docgen', new DocsParser({ ...DocsManager.defaultParserOptions, package: 'docgen', npm: '@reciple/docgen' }));
 
         const command = new SlashCommandBuilder()

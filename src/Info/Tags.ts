@@ -1,4 +1,4 @@
-import { Config, MessageCommandBuilder, RecipleClient, SlashCommandBuilder, yaml } from 'reciple';
+import { MessageCommandBuilder, RecipleModuleLoadData, SlashCommandBuilder, cli } from 'reciple';
 import { ButtonBuilder, ButtonStyle, Collection, ComponentType, mergeDefault } from 'discord.js';
 import { InteractionListenerType } from 'reciple-interaction-events';
 import { readdir, readFile, writeFile } from 'fs/promises';
@@ -7,6 +7,7 @@ import { BaseModule } from '../BaseModule.js';
 import Utility from '../Utils/Utility.js';
 import { fileURLToPath } from 'url';
 import { existsSync } from 'fs';
+import yaml from 'yaml';
 import path from 'path';
 
 export interface TagsConfig {
@@ -68,14 +69,14 @@ export class Tags extends BaseModule {
                 .setName('tag')
                 .setDescription('Send a tag to chat')
                 .setValidateOptions(true)
-                .setDmPermission(true)
+                .setDMPermission(true)
                 .addOption(query => query
                     .setName('query')
                     .setDescription('Search for tag to send')
                     .setRequired(true)
                 )
-                .setExecute(async ({ message, command }) => {
-                    const query = command.args.join(' ');
+                .setExecute(async ({ message, parserData }) => {
+                    const query = parserData.args.join(' ');
                     const tag = this.search(query)[0];
 
                     if (!tag) {
@@ -128,7 +129,7 @@ export class Tags extends BaseModule {
                     const userId = interaction.customId.split(' ')[1];
 
                     if (userId && userId !== interaction.user.id) {
-                        await interaction.reply(Utility.createErrorMessage('This is not your tag suggestion'));
+                        await interaction.reply({ content: Utility.createErrorMessage('This is not your tag suggestion'), ephemeral: true });
                         return;
                     }
 
@@ -142,7 +143,7 @@ export class Tags extends BaseModule {
         return true;
     }
 
-    public async onLoad(client: RecipleClient<true>): Promise<void> {
+    public async onLoad({ client }: RecipleModuleLoadData): Promise<void> {
         client.on('messageCreate', async message => {
             if (message.author.bot || message.author.system || !message.inGuild()) return;
             if (this.config.autosuggestChannels?.length && !this.config.autosuggestChannels.includes(message.channelId)) return;
@@ -237,12 +238,12 @@ export class Tags extends BaseModule {
     }
 
     public async loadConfig(): Promise<TagsConfig> {
-        const file = path.join(process.cwd(), 'config/tags.yml');
+        const file = path.join(cli.cwd, 'config/tags.yml');
 
         return createReadFileAsync(file, Tags.defaultConfig, {
             encodeFileData: data => yaml.stringify(data),
             formatReadData: async (data) => {
-                this.config = Config.resolveEnvValues(mergeDefault(Tags.defaultConfig, yaml.parse(data.toString())) as TagsConfig);
+                this.config = Utility.resolveEnvValues(mergeDefault(Tags.defaultConfig, yaml.parse(data.toString())) as TagsConfig);
 
                 await writeFile(file!, yaml.stringify(this.config));
 

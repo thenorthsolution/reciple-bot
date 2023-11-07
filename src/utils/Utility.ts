@@ -1,7 +1,9 @@
 import { AnySlashCommandBuilder, SlashCommandBuilder } from 'reciple';
+import { SlashCommandSubcommandBuilder, inlineCode } from 'discord.js';
+import { resolveEnvProtocol } from '@reciple/utils';
 import { BaseModule } from '../BaseModule.js';
-import { SlashCommandSubcommandBuilder, Snowflake, inlineCode } from 'discord.js';
 import DevCommands from './DevCommands.js';
+import dotenv from 'dotenv';
 
 export class Utils extends BaseModule {
     public async onStart(): Promise<boolean> {
@@ -45,17 +47,29 @@ export class Utils extends BaseModule {
             ) as T;
     }
 
-    public isSnowflake(id: unknown): id is Snowflake {
-        let isBigInt: boolean;
+    public resolveEnvValues<T extends Record<any, any>|string|Array<any>>(object: T, envFile?: string): T {
+        if (envFile) dotenv.config({ path: envFile, override: true });
+        if (typeof object !== 'object') return (typeof object === 'string' ? (resolveEnvProtocol(object) ?? object) : object) as T;
+        if (Array.isArray(object)) return object.map(v => resolveEnvProtocol(v) ?? v) as T;
 
-        try {
-            BigInt(id as string);
-            isBigInt = true;
-        } catch(err) {
-            isBigInt = false;
+        const keys = object ? Object.keys(object) : [];
+        const values = Object.values(object!);
+
+        let newObject = {};
+        let i = 0;
+
+        for (const value of values) {
+            newObject = {
+                ...newObject,
+                [keys[i]]: typeof value === 'string' || typeof value === 'object'
+                    ? this.resolveEnvValues(value)
+                    : value
+            };
+
+            i++;
         }
 
-        return typeof id === 'string' && isBigInt;
+        return newObject as T;
     }
 }
 
