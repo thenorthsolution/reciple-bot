@@ -22,7 +22,7 @@ export class Invite extends BaseModule {
                                     new ButtonBuilder()
                                         .setLabel('Support Server')
                                         .setStyle(ButtonStyle.Link)
-                                        .setURL(`https://discord.gg/2CattJYNpw`)
+                                        .setURL(`https://discord.gg/kajdev-1032785824686817291`)
                                 ]
                             }
                         ],
