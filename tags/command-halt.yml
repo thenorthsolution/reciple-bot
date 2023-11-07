@@ -2,7 +2,7 @@ name: Command halt
 keywords: ['error', 'cooldown', 'error handling', 'cooldown message']
 pinned: true
 content: |-
-  - Use [`setHalt`](<https://reciple.js.org/docs/client/main/classes:BaseCommandBuilder#sethalt>) to set command halt handler
+  - Use [`setHalt`](<https://reciple.js.org/docs/core/main/classes:BaseCommandBuilder#sethalt>) to set command halt handler
   - Return true if the command halt is handled
 
   ```js
@@ -31,4 +31,4 @@ content: |-
       return false; // Return false to unhandled command halt
     });
   ```
-  [See more command halt reasons](<https://reciple.js.org/docs/client/main/enums:CommandHaltReason>)
+  [See more command halt reasons](<https://reciple.js.org/docs/core/main/enums:CommandHaltReason>)
