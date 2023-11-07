@@ -16,7 +16,7 @@ export class Pong extends BaseModule {
 
                     const defer = await interaction.deferReply({ ephemeral: true });
 
-                    restLatency = Date.now() - defer.createdTimestamp;
+                    restLatency = defer.createdTimestamp - Date.now();
 
                     await interaction.editReply({
                         content: `🏓 **Pong**\n${codeBlock('yml', 'websocket: ' + ms(wsLatency, { long: true }) + '\nREST: ' + ms(restLatency, { long: true }))}`

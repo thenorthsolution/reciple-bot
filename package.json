@@ -25,7 +25,7 @@
     "reciple-interaction-events": "^2.0.0",
     "reciple-registry-cache": "^2.0.0",
     "semver": "^7.5.4",
-    "typedoc-json-parser": "^8.2.0",
+    "typedoc-json-parser": "^9.0.1",
     "uwuifier": "^4.0.5",
     "yaml": "^2.3.4"
   },
