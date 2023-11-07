@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from 'reciple';
 import { BaseModule } from '../BaseModule.js';
+import Utility from '../Utils/Utility.js';
 import { codeBlock } from 'discord.js';
 import ms from 'ms';
 
@@ -14,9 +15,9 @@ export class Pong extends BaseModule {
                     let wsLatency = client.ws.ping;
                     let restLatency = 0;
 
-                    const defer = await interaction.deferReply({ ephemeral: true });
+                    const reply = await interaction.reply({ content: Utility.createLabel('Pinging...', '🏓'), ephemeral: true });
 
-                    restLatency = defer.createdTimestamp - Date.now();
+                    restLatency = Date.now() - reply.createdTimestamp;
 
                     await interaction.editReply({
                         content: `🏓 **Pong**\n${codeBlock('yml', 'websocket: ' + ms(wsLatency, { long: true }) + '\nREST: ' + ms(restLatency, { long: true }))}`
