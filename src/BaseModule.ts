@@ -2,7 +2,7 @@ import { AnyCommandResolvable, RecipleModuleData, RecipleModuleLoadData, Reciple
 import { AnyInteractionListener } from 'reciple-interaction-events';
 
 export abstract class BaseModule implements RecipleModuleData {
-    public versions: string  = '^7';
+    public versions: string  = '^8';
     public commands: AnyCommandResolvable[] = [];
     public devCommands: AnyCommandResolvable[] = [];
     public interactionListeners: AnyInteractionListener[] = [];

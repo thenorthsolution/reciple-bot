@@ -14,6 +14,7 @@ export const config = {
         registerToGuilds: process.env.TEST_GUILD ? [process.env.TEST_GUILD] : []
     },
     logger: {
+        ...baseConfig.logger,
         debugmode: true
     },
     checkForUpdates: false
