@@ -55,10 +55,10 @@ export class DocsParser {
                 'Authorization': 'Bearer ' + process.env.GITHUB_TOKEN,
                 'Accept': 'application/vnd.github.v3+json'
             } : undefined
-        }).then(res => res.data);
+        }).then(res => res.data).catch(() => []);
         const tags: string[] = [];
 
-        if (!tags.length) return tags;
+        if (!files.length) return tags;
 
         let versions = files.filter(f => semver.valid(f.name.replace('.json', ''))).map(f => f.name.replace('.json', ''));
         let branches = files.filter(f => !versions.some(e => e === f.name.replace('.json', ''))).map(f => f.name.replace('.json', ''));
