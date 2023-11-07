@@ -2,23 +2,16 @@ name: Token
 pinned: true
 keywords: ['Login', 'Authentication']
 content: |-
-  Token can be configuired inside `reciple.yml` with the `token` property.
+  Token can be configuired inside your config file with the `token` property.
 
-  ```yml
-  # reciple.yml example
-  token: YOUR_TOKEN_HERE
+  ```js
+  # reciple.mjs example
+  export const config = {
+    token: "YOUR_TOKEN_HERE",
+    // Other configs
+  };
   ```
-  You can also put your token into an environment variable. Just create a `.env` file and put the token there, then replace the value of `token` in the reciple.yml to `env:YOUR_TOKEN_ENV`
-
-  ```yml
-  # .env example
-  TOKEN="YOUR_TOKEN_HERE"
-  ```
-  ```yml
-  # reciple.yml example
-  token: env:TOKEN
-  ```
-  You can do the same concept with the cli flag
+  You can also override the token using a cli flag
   ```bash
   npx reciple --token YOUR_TOKEN_HERE
   or

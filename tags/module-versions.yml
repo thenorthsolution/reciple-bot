@@ -6,7 +6,7 @@ content: |-
 
   ```js
   export default {
-    versions: '^7', // You can also use an array, example: ['^5', '^7']
+    versions: '^8', // You can also use an array, example: ['^6', '^7', '^8']
     onStart() {
       return true;
     }

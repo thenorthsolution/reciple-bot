@@ -1,6 +1,6 @@
 name: Import builders
 pinned: true
-keywords: ['import builders', 'require builders', '']
+keywords: ['import builders', 'require builders']
 content: |-
   ```diff
   - import { ContextMenuCommandBuilder, SlashCommandBuilder } from 'discord.js';

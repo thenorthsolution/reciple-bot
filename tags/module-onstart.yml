@@ -6,11 +6,11 @@ content: |-
 
   ```js
   export default {
-    versions: '^7',
+    versions: '^8',
     onStart() {
       return true; // Return false to not successfuly load the module
     }
   }
   ```
 
-  `onStart` can also return a [`Promise`](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>) that resolved to a boolean.
+  `onStart` can also return a [`Promise`](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>) that resolves a boolean.

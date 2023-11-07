@@ -1,4 +1,4 @@
-name: Command halt
+name: Command Halt
 keywords: ['error', 'cooldown', 'error handling', 'cooldown message']
 pinned: true
 content: |-
@@ -16,16 +16,15 @@ content: |-
       await message.reply('Pong');
     })
     .setHalt(async haltData => {
-      if (halt.reason === CommandHaltReason.Cooldown) {
-        const cooldown = halt.cooldownData.endsAt.getTime() - Date.now();
+      switch (halt.reason) {
+        case CommandHaltReason.Cooldown:
+          const cooldown = halt.cooldownData.endsAt.getTime() - Date.now();
 
-        await halt.executeData.message.reply(`Wait for ${cooldown}ms`);
-        return true;
-      }
-
-      if (halt.reason === CommandHaltReason.Error) {
-        await halt.executeDate.message.reply(`An error occured!`);
-        return true;
+          await halt.executeData.message.reply(`Wait for ${cooldown}ms`);
+          return true;
+        case CommandHaltReason.Error:
+          await halt.executeDate.message.reply(`An error occured!`);
+          return true;
       }
 
       return false; // Return false to unhandled command halt
