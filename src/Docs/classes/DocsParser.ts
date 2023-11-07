@@ -50,7 +50,12 @@ export class DocsParser {
 
     public async fetchTags(): Promise<string[]> {
         const url = `https://api.github.com/repos/${this.options.repository}/contents/${this.options.package}?ref=${this.options.branch ?? 'docs'}`;
-        const files = await axios.get<APIGitHubRepositoryContent<'file'>[]>(url).then(res => res.data).catch(() => []);
+        const files = await axios.get<APIGitHubRepositoryContent<'file'>[]>(url, {
+            headers: process.env.GITHUB_TOKEN ? {
+                'Authorization': 'Bearer ' + process.env.GITHUB_TOKEN,
+                'Accept': 'application/vnd.github.v3+json'
+            } : undefined
+        }).then(res => res.data);
         const tags: string[] = [];
 
         if (!tags.length) return tags;

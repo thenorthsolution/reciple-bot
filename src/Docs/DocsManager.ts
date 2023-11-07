@@ -2,7 +2,7 @@ import { Collection, italic } from 'discord.js';
 import { BaseModule } from '../BaseModule.js';
 import { DocsParser, DocsParserOptions } from './classes/DocsParser.js';
 import { ProjectParser, TypeParameterParser } from 'typedoc-json-parser';
-import { SlashCommandBuilder } from 'reciple';
+import { MessageCommandBuilder, SlashCommandBuilder } from 'reciple';
 import { SlashCommandSubcommandBuilder } from 'discord.js';
 import Utility from '../Utils/Utility.js';
 import { InteractionListenerType } from 'reciple-interaction-events';
@@ -66,6 +66,18 @@ export class DocsManager extends BaseModule {
                 })
         ];
 
+        this.devCommands = [
+            new MessageCommandBuilder()
+                .setName('fd')
+                .setDescription('Fetch docs')
+                .setExecute(async ({ message }) => {
+                    const reply = await message.reply(Utility.createLabel('Fetching docs...', '⌚'));
+
+                    await this.resolveAll(true);
+                    await reply.edit(Utility.createSuccessMessage('Fetched docs data'));
+                })
+        ];
+
         this.interactionListeners = [
             {
                 type: InteractionListenerType.Autocomplete,
@@ -121,7 +133,7 @@ export class DocsManager extends BaseModule {
 
     public createUpdateDocsTimeout(time: number = 60 * 1000 * 60 * 24): NodeJS.Timeout {
         if (this.updateDocsTimeout) clearInterval(this.updateDocsTimeout);
-        return this.updateDocsTimeout = setInterval(() => this.resolveAll().catch(() => null), time).unref();
+        return this.updateDocsTimeout = setInterval(() => this.resolveAll(true).catch(() => null), time).unref();
     }
 
     public async resolveAll(force: boolean = false): Promise<void> {
